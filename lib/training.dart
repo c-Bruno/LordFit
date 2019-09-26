@@ -125,7 +125,7 @@ class _TrainingPageState extends State<TrainingPage> {
                   ],
                 ),
               ),
-             /* Stack(
+             Stack(
                 children: <Widget>[
                   CardScrollWidget(currentPage),
                   Positioned.fill(
@@ -139,7 +139,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     ),
                   )
                 ],
-              ),*/
+              ),
             ],
           ),
         ),
@@ -148,7 +148,7 @@ class _TrainingPageState extends State<TrainingPage> {
   }
 }
 
-/*class CardScrollWidget extends StatelessWidget {
+class CardScrollWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
   var verticalInset = 20.0;
@@ -162,7 +162,7 @@ class _TrainingPageState extends State<TrainingPage> {
       child: LayoutBuilder(builder: (context, contraints) {
         var width = contraints.maxWidth;
         var height = contraints.maxHeight;
-
+      
         var safeWidth = width - 2 * padding;
         var safeHeight = height - 2 * padding;
 
@@ -174,9 +174,9 @@ class _TrainingPageState extends State<TrainingPage> {
 
         List<Widget> cardList = new List();
 
-        for (var i = 0; i < images.length; i++) {
-          var delta = i - currentPage;
-          bool isOnRight = delta > 0;
+       for (var i = 0; i < images.length; i++) {
+         var delta = i - currentPage;
+         bool isOnRight = delta > 0;
 
           var start = padding +
               max(
@@ -203,7 +203,7 @@ class _TrainingPageState extends State<TrainingPage> {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      Image.asset(images[i], fit: BoxFit.cover),
+//                     Image.asset(images[i], fit: BoxFit.cover),                     
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
@@ -231,7 +231,7 @@ class _TrainingPageState extends State<TrainingPage> {
                                 decoration: BoxDecoration(
                                     color: Colors.blueAccent,
                                     borderRadius: BorderRadius.circular(20.0)),
-                                child: Text("Read Later",
+                                child: Text("+ Informações",
                                     style: TextStyle(color: Colors.white)),
                               ),
                             )
@@ -252,7 +252,7 @@ class _TrainingPageState extends State<TrainingPage> {
       }),
     );
   }
-}*/
+}
 
 
 class _MenuBar extends StatelessWidget {
