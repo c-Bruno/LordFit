@@ -15,6 +15,7 @@ class TrainingPage extends StatefulWidget {
   @override
   _TrainingPageState createState() => new _TrainingPageState();
   
+  
 }
 
 var cardAspectRatio = 12.0 / 16.0;
@@ -33,11 +34,12 @@ class _TrainingPageState extends State<TrainingPage> {
     });
 
     return Container(
+      
       decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [
             
-            Color(0xFFa300d9),
+            Color(0xFF8),
             Color(0xFF000000),
           ],
               begin: Alignment.bottomCenter,
@@ -45,6 +47,7 @@ class _TrainingPageState extends State<TrainingPage> {
               tileMode: TileMode.clamp)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
+
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -54,14 +57,19 @@ class _TrainingPageState extends State<TrainingPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    
                     IconButton(
                       icon: Icon(
-                        Icons.list,
+                        Icons.arrow_back_ios,
                         color: Colors.white,
                         size: 30.0,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                      Navigator.pop(context, '/singnup');
+                      },
                     ),
+                    
+                    
                     IconButton(
                       icon: Icon(
                         Icons.search,
@@ -73,6 +81,8 @@ class _TrainingPageState extends State<TrainingPage> {
                   ],
                 ),
               ),
+             
+             
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
@@ -85,6 +95,8 @@ class _TrainingPageState extends State<TrainingPage> {
                           fontFamily: "Calibre-Semibold",
                           letterSpacing: 1.0,
                         )),
+                    
+                    
                     IconButton(
                       icon: Icon(
                         Icons.more_horiz,
@@ -99,6 +111,8 @@ class _TrainingPageState extends State<TrainingPage> {
                   ],
                 ),
               ),
+              
+              
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Row(
@@ -112,7 +126,7 @@ class _TrainingPageState extends State<TrainingPage> {
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 22.0, vertical: 6.0),
-                          child: Text("Animated",
+                          child: Text("Treino A",
                               style: TextStyle(color: Colors.white)),
                         ),
                       ),
@@ -203,7 +217,7 @@ class CardScrollWidget extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-//                     Image.asset(images[i], fit: BoxFit.cover),                     
+                     Image.asset(images[i], fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
@@ -229,10 +243,13 @@ class CardScrollWidget extends StatelessWidget {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 22.0, vertical: 6.0),
                                 decoration: BoxDecoration(
-                                    color: Colors.blueAccent,
+                                    //color: Colors.blueAccent,
+                                    color: Color(0xFF6a0499),
                                     borderRadius: BorderRadius.circular(20.0)),
                                 child: Text("+ Informações",
-                                    style: TextStyle(color: Colors.white)),
+                                    style: TextStyle(
+                                      color: Colors.white
+                                    )),
                               ),
                             )
                           ],

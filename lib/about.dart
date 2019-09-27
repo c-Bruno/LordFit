@@ -10,7 +10,13 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(''),
+        
+          leading: IconButton(
+         icon: Icon(Icons.arrow_back_ios),
+         color: Colors.white,
+         onPressed: () => Navigator.pop(context, false),
+       ),
+       
       ),
     );
   }

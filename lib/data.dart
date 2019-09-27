@@ -1,8 +1,9 @@
   
 List < String > images = [
-  "assets / images/splash.png" ,
-  "assets / images/logo.png" ,
-  "assets / images/LogoFinal.png",
+  "assets/images/s1.png" ,
+  "assets/images/s2.png" ,
+  "assets/images/s3.png",
+  "assets/images/s4.png",
 ];
 
 List < String > title = [
