@@ -37,11 +37,10 @@ class _TrainingPageState extends State<TrainingPage> {
       
       decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: [
-            
-            Color(0xFF8),
-            Color(0xFF000000),
-          ],
+              colors: [            
+              Color(0xFF8),
+              Color(0xFF531155),
+            ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               tileMode: TileMode.clamp)),
@@ -62,7 +61,7 @@ class _TrainingPageState extends State<TrainingPage> {
                       icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
-                        size: 30.0,
+                        size: 20.0,
                       ),
                       onPressed: () {
                       Navigator.pop(context, '/singnup');
@@ -74,7 +73,7 @@ class _TrainingPageState extends State<TrainingPage> {
                       icon: Icon(
                         Icons.search,
                         color: Colors.white,
-                        size: 30.0,
+                        size: 20.0,
                       ),
                       onPressed: () {},
                     )
@@ -91,7 +90,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     Text("Workouts",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 46.0,
+                          fontSize: 40.0,
                           fontFamily: "Calibre-Semibold",
                           letterSpacing: 1.0,
                         )),

@@ -1,81 +1,10 @@
-/*import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart'; 
-import 'training.dart';
-import 'profile.dart';
-import './about.dart';
-import 'home.dart';
-
- 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => new _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(),
-       
-      
-      drawer: new Drawer(
-        child: ListView(
-          
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: new Text('teste'),
-              accountEmail: new Text('testemail@test.com'),
-              currentAccountPicture: new CircleAvatar(
-                backgroundImage: new NetworkImage('http://i.pravatar.cc/300'),
-              ),
-            ),
-             
-          new ListTile(
-              title: new Text('Perfil'),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new ProfilePage()));
-              }
-            ),
-
-            new ListTile(
-              title: new Text('Sobre'),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new AboutPage()));
-              }
-            ),
-
-             new ListTile(
-              title: new Text('Meu treino'),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new TrainingPage()));
-              }
-            ),
-          ],
-        ),
-      ),
-    );
-   }
-}*/
-
-
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'profile.dart';
 import 'about.dart';
 import 'training.dart';
 
-final Color backgroundColor = Color(0xFF000000);
+final Color backgroundColor = Color(0xFF0f0f0f);
 
 class MenuDashboardPage extends StatefulWidget {
     @override
@@ -83,6 +12,7 @@ class MenuDashboardPage extends StatefulWidget {
   }
 
 class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTickerProviderStateMixin {
+    
     bool isCollapsed = true;
     double screenWidth, screenHeight;
     final Duration duration = const Duration(milliseconds: 300);
@@ -93,35 +23,35 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
 
     @override
     void initState() {
-      super.initState();
-      _controller = AnimationController(vsync: this, duration: duration);
-      _scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(_controller);
-      _menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(_controller);
-      _slideAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).animate(_controller);
+        super.initState();
+        _controller = AnimationController(vsync: this, duration: duration);
+        _scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(_controller);
+        _menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(_controller);
+        _slideAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0)).animate(_controller);
     }
 
     @override
     void dispose() {
-      _controller.dispose();
-      super.dispose();
+        _controller.dispose();
+        super.dispose();
     }
 
     @override
-    Widget build(BuildContext context) {
-      Size size = MediaQuery.of(context).size;
-      screenHeight = size.height;
-      screenWidth = size.width;
+      Widget build(BuildContext context) {
+        Size size = MediaQuery.of(context).size;
+        screenHeight = size.height;
+        screenWidth = size.width;
 
-      return Scaffold(
-        backgroundColor: backgroundColor,
-        body: Stack(
-          children: <Widget>[
-            menu(context),
-            dashboard(context),
-          ],
-        ),
-      );
-    }
+        return Scaffold(
+          backgroundColor: backgroundColor,
+          body: Stack(
+            children: <Widget>[
+              menu(context),
+              dashboard(context),
+            ],
+          ),
+        );
+      }
 
     Widget menu(context) {
       return SlideTransition(
@@ -132,16 +62,28 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
             padding: const EdgeInsets.only(left: 16.0),
             child: Align(
               //alignment: Alignment.centerLeft,
+              
               child: Column(
                 children: <Widget>[                
                       new UserAccountsDrawerHeader(
-                        
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [            
+                            Color(0xFF8),
+                            Color(0xFF993399),
+                         ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          tileMode: TileMode.clamp)),
+
                         accountName: new Text('teste'),
                         accountEmail: new Text('testemail@test.com'),
                         currentAccountPicture: new CircleAvatar(
                           backgroundImage: new NetworkImage('http://i.pravatar.cc/300'),
                           
                         ),
+
+
                       ),
                       
                     new ListTile(
