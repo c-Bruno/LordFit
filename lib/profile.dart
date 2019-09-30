@@ -9,9 +9,9 @@ class ProfilePage extends StatefulWidget {
  
 class _ProfilePageState extends State<ProfilePage> {
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
+     appBar: new AppBar(
 
           leading: IconButton(
          icon: Icon(Icons.arrow_back_ios),
@@ -20,7 +20,9 @@ class _ProfilePageState extends State<ProfilePage> {
        ),
        
       ),
-      body: Center(
+
+
+ /*     body: Center(
         child: RaisedButton (
           child: Text('Cadastre-se Já'),
           onPressed: (){
@@ -51,5 +53,102 @@ Widget build(BuildContext context) {
     animationCurve: Curves.linearToEaseOut,
     animationDuration: Duration(microseconds:100000), 
     );
-}
+}*/
+
+     body: new Stack(
+      children: <Widget>[
+
+        
+        Positioned(
+            width: 350.0,
+            top: MediaQuery.of(context).size.height / 5,
+            child: Column(
+              children: <Widget>[
+                Container(
+                    width: 150.0,
+                    height: 150.0,
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                'http://i.pravatar.cc/300'),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.all(Radius.circular(75.0)),
+                        boxShadow: [
+                          BoxShadow(blurRadius: 7.0, color: Colors.black)
+                        ])),
+                
+                SizedBox(height: 50.0),
+                Text(
+                  'Teste ',
+                  style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                ),
+
+                SizedBox(height: 2.0),
+                Text(
+                  'testemail@test.com',
+                  style: TextStyle(
+                      fontSize: 17.0,
+                      fontStyle: FontStyle.italic,
+                    ),
+                ),
+
+
+                SizedBox(height: 25.0),
+                
+                Container(
+                    height: 30.0,
+                    width: 95.0,
+                    child: Material(
+                      borderRadius: BorderRadius.circular(20.0),
+                      shadowColor: Colors.greenAccent,
+                      color: Colors.green,
+                      elevation: 7.0,
+                      child: GestureDetector(
+                        onTap: () {
+
+                        },
+                        child: Center(
+                          child: Text(
+                            'Editar',
+                            style: TextStyle(
+                              color: Colors.white, 
+                            ),                            
+                          ),
+                        ),
+                      ),
+                    )),
+
+
+                SizedBox(height: 25.0),
+
+                Container(
+                    height: 30.0,
+                    width: 95.0,
+                    child: Material(
+                      borderRadius: BorderRadius.circular(20.0),
+                      shadowColor: Colors.redAccent,
+                      color: Colors.red,
+                      elevation: 7.0,
+                      child: GestureDetector(
+                        onTap: () {
+
+                        },
+                        child: Center(
+                          child: Text(
+                            'Log out',
+                            style: TextStyle(color: Colors.white, 
+                            ),
+                          ),
+                        ),
+                      ),
+                    ))
+              ],
+            ))
+      ],
+    ));
+  }
 }

@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-//import 'package:carousel_pro/carousel_pro.dart';
-//import 'package:flutter_mobile_carousel/carousel.dart'; 
-//import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:minhappteste/home.dart';
-import 'CustomIcons.dart';
 import 'data.dart';
 import 'dart:math';
 import 'main.dart';
 import 'home.dart';
+import 'contants.dart';
 
 
 class TrainingPage extends StatefulWidget {
@@ -23,6 +18,20 @@ var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class _TrainingPageState extends State<TrainingPage> {
   var currentPage = images.length - 1.0;
+
+
+// para criação de um novo "menu de edição" é necessario chamar o contants (pelo menos nesse projeto devido a estrutura definida) e modificar linhas a baixo conforme necessario
+  void choiceAction(String choice){
+    if(choice == Constants.Settings){
+      print('Editar treino');
+    }
+    else if(choice == Constants.createn){
+      print('Criar novo treino');
+    } 
+    else if(choice == Constants.delete){
+      print('deletar treino');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,17 +105,33 @@ class _TrainingPageState extends State<TrainingPage> {
                         )),
                     
                     
-                    IconButton(
+                    //Menu de editar 
+                    PopupMenuButton <String>(
+                       color: Color(0xFF6a0499),
+                      icon: Icon(Icons.create),
+                      
+                       onSelected: choiceAction,
+                        itemBuilder: (BuildContext context){                         
+                          return Constants.choices.map((String choice){
+                            return PopupMenuItem<String>(                              
+                              value: choice,
+                              child: Text(choice),
+                            );
+                          }).toList();
+                      },
+                     ),
+                    
+                    /*IconButton(
                       icon: Icon(
                         Icons.more_horiz,
                         size: 20.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
-                         //Navigator.pushNamed(context, _MenuBar());
+                         Navigator.pushNamed(context, '/menubar');
                          
                       },
-                    )
+                    )*/
                   ],
                 ),
               ),
@@ -211,6 +236,7 @@ class CardScrollWidget extends StatelessWidget {
                       offset: Offset(3.0, 6.0),
                       blurRadius: 10.0)
                 ]),
+                
                 child: AspectRatio(
                   aspectRatio: cardAspectRatio,
                   child: Stack(
@@ -232,9 +258,11 @@ class CardScrollWidget extends StatelessWidget {
                                       fontSize: 25.0,
                                       fontFamily: "SF-Pro-Text-Regular")),
                             ),
+
                             SizedBox(
                               height: 10.0,
                             ),
+
                             Padding(
                               padding: const EdgeInsets.only(
                                   left: 12.0, bottom: 12.0),
@@ -268,19 +296,6 @@ class CardScrollWidget extends StatelessWidget {
       }),
     );
   }
+  
 }
 
-
-class _MenuBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-        /*title: new Text(Widget.Title),
-        actions: <Widget>[
-
-        ],*/
-      )
-    );
-  }
-}

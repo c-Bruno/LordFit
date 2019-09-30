@@ -106,18 +106,9 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                          Navigator.pushNamed(context, '/training'); 
                         }
                       ),
-        
-                  /*Text("Dashboard", style: TextStyle(color: Colors.white, fontSize: 22)),
-                  SizedBox(height: 10),
-                  Text("Messages", style: TextStyle(color: Colors.white, fontSize: 22)),
-                  SizedBox(height: 10),
-                  Text("Utility Bills", style: TextStyle(color: Colors.white, fontSize: 22)),
-                  SizedBox(height: 10),
-                  Text("Funds Transfer", style: TextStyle(color: Colors.white, fontSize: 22)),
-                  SizedBox(height: 10),
-                  Text("Branches", style: TextStyle(color: Colors.white, fontSize: 22)),*/
                 ],
               ),
+                
             ),
           ),
         ),
@@ -141,16 +132,17 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               physics: ClampingScrollPhysics(),
+              
               child: Container(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 48),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       mainAxisSize: MainAxisSize.max,
-                      
-                      
+                                           
                       children: [
                         InkWell(
                           child: Icon(Icons.menu, color: Colors.white),
@@ -166,11 +158,33 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                           },
                         ),
                         Text("Home", style: TextStyle(fontSize: 24, color: Colors.white)),
-                        Icon(Icons.settings, color: Colors.white),
+
+
+                        InkWell(
+                        child: Icon(
+                            Icons.settings, 
+                            color: Colors.white
+                          ),
+
+                          onTap: () {
+                            setState(() {
+                              if (isCollapsed)
+                                _controller.forward();
+                              else
+                                _controller.reverse();
+
+                              isCollapsed = !isCollapsed;
+                            });
+
+//                            Navigator.pushNamed(context, '/profile');
+                          },
+                        )
                       ],
                     ),
+
+
                     SizedBox(height: 50),
-                    /*Container(
+                    Container(
                       height: 200,
                       child: PageView(
                         controller: PageController(viewportFraction: 0.8),
@@ -194,7 +208,9 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                           ),
                         ],
                       ),
-                    ),*/
+                    ),
+
+                    
                   ],
                 ),
               ),

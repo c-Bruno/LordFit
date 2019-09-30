@@ -7,7 +7,7 @@ import './about.dart';
 import 'home.dart';
 import 'login.dart';
 import 'resetpassword.dart';
-
+import 'training.dart';
 
 
 void main() {
