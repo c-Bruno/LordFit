@@ -25,7 +25,7 @@ runApp(MaterialApp(
 
       ),
 
-      
+
       debugShowCheckedModeBanner: false,
 
       routes: {

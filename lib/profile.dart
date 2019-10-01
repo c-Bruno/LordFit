@@ -61,9 +61,10 @@ Widget build(BuildContext context) {
         
         Positioned(
             width: 350.0,
-            top: MediaQuery.of(context).size.height / 5,
+            top: MediaQuery.of(context).size.height / 7,
             child: Column(
               children: <Widget>[
+
                 Container(
                     width: 150.0,
                     height: 150.0,

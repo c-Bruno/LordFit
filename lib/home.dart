@@ -45,6 +45,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         return Scaffold(
           backgroundColor: backgroundColor,
           body: Stack(
+            
             children: <Widget>[
               menu(context),
               dashboard(context),
@@ -53,11 +54,15 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         );
       }
 
+     
+
     Widget menu(context) {
+      
       return SlideTransition(
         position: _slideAnimation,
         child: ScaleTransition(
           scale: _menuScaleAnimation,
+
           child: Padding(
             padding: const EdgeInsets.only(left: 16.0),
             child: Align(
@@ -122,7 +127,12 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         bottom: 0,
         left: isCollapsed ? 0 : 0.6 * screenWidth,
         right: isCollapsed ? 0 : -0.2 * screenWidth,
+        
+
+        
         child: ScaleTransition(
+
+          
           scale: _scaleAnimation,
           child: Material(
             animationDuration: duration,
@@ -140,6 +150,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                   children: <Widget>[
                     
                     Row(
+                      
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       mainAxisSize: MainAxisSize.max,
                                            
@@ -150,6 +161,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                             setState(() {
                               if (isCollapsed)
                                 _controller.forward();
+                                
                               else
                                 _controller.reverse();
 
@@ -203,13 +215,20 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                           ),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.greenAccent,
+                            color: Colors.purpleAccent,
                             width: 100,
                           ),
                         ],
                       ),
                     ),
 
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Container(
+                  
+                        
+                  ),
                     
                   ],
                 ),
@@ -219,4 +238,6 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         ),
       );
     }
+
+    
 }

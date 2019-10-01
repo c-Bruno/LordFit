@@ -70,7 +70,7 @@ class _TrainingPageState extends State<TrainingPage> {
                       icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
-                        size: 20.0,
+                        size: 25.0,
                       ),
                       onPressed: () {
                       Navigator.pop(context, '/singnup');
@@ -82,7 +82,7 @@ class _TrainingPageState extends State<TrainingPage> {
                       icon: Icon(
                         Icons.search,
                         color: Colors.white,
-                        size: 20.0,
+                        size: 25.0,
                       ),
                       onPressed: () {},
                     )
@@ -91,6 +91,10 @@ class _TrainingPageState extends State<TrainingPage> {
               ),
              
              
+
+             SizedBox( height: 20,),
+
+
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
@@ -108,7 +112,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     //Menu de editar 
                     PopupMenuButton <String>(
                        color: Color(0xFF6a0499),
-                      icon: Icon(Icons.create),
+                      icon: Icon(Icons.create, size: 25),
                       
                        onSelected: choiceAction,
                         itemBuilder: (BuildContext context){                         
@@ -163,6 +167,11 @@ class _TrainingPageState extends State<TrainingPage> {
                   ],
                 ),
               ),
+
+
+              
+            SizedBox(height: 20,),
+// aciona carousel de imagens 
              Stack(
                 children: <Widget>[
                   CardScrollWidget(currentPage),
