@@ -41,7 +41,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         Size size = MediaQuery.of(context).size;
         screenHeight = size.height;
         screenWidth = size.width;
-
+          
         return Scaffold(
           backgroundColor: backgroundColor,
           body: Stack(
@@ -69,7 +69,9 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
               //alignment: Alignment.centerLeft,
               
               child: Column(
-                children: <Widget>[                
+                
+                children: <Widget>[     
+                             
                       new UserAccountsDrawerHeader(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -127,12 +129,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         bottom: 0,
         left: isCollapsed ? 0 : 0.6 * screenWidth,
         right: isCollapsed ? 0 : -0.2 * screenWidth,
-        
-
-        
+                
         child: ScaleTransition(
-
-          
           scale: _scaleAnimation,
           child: Material(
             animationDuration: duration,
@@ -141,6 +139,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
             color: backgroundColor,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
+              
               physics: ClampingScrollPhysics(),
               
               child: Container(
@@ -182,6 +181,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                             setState(() {
                               if (isCollapsed)
                                 _controller.forward();
+                                
                               else
                                 _controller.reverse();
 
@@ -205,17 +205,17 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         children: <Widget>[
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.redAccent,
+                            color: Colors.deepPurple,
                             width: 100,
                           ),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.blueAccent,
+                            color: Colors.deepPurple,
                             width: 100,
                           ),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.purpleAccent,
+                            color: Colors.deepPurple,
                             width: 100,
                           ),
                         ],
