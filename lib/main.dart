@@ -11,7 +11,6 @@ import 'login.dart';
 import 'resetpassword.dart';
 import 'training.dart';
 import 'data.dart';
-import 'intro.dart';
 
 
 void main() {
@@ -43,9 +42,7 @@ runApp(MaterialApp(
       
       },
 
-      //home: LoginPage(),
-      home: IntroScreenPage(), 
-
+      home: LoginPage(),
     ),
   );
 }

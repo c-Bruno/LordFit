@@ -1,4 +1,6 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'main.dart';
 import 'profile.dart';
 import 'about.dart';
@@ -113,6 +115,14 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                          Navigator.pushNamed(context, '/training'); 
                         }
                       ),
+
+                      /*new ListTile(
+                        title: new Text('Agenda'),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/agende');
+                        },
+                      ),*/
+                      
                 ],
               ),
                 
@@ -194,42 +204,144 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                       ],
                     ),
 
-
-                    SizedBox(height: 50),
+                  const SizedBox(height: 50.0),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                height: 190,
+                                color: Colors.blue,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    ListTile(
+                                      title: Text(
+                                        "9,850",
+                                        style:
+                                        Theme.of(context).textTheme.display1.copyWith(
+                                          color: Colors.black,
+                                          fontSize: 25.0,
+                                        ),
+                                      ),
+                                     trailing: Icon(FontAwesomeIcons.walking, color: Colors.black, size: 49.0,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 16.0),
+                                      child: Text(
+                                        'Passos',
+                                        style: TextStyle(
+                                          fontSize: 20.0
+                                        ),
+                                        //style: whiteText,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 10.0),
+                              Container(
+                                height: 120,
+                                color: Colors.teal,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    ListTile(
+                                      title: Text(
+                                        "70 bpm",
+                                        style:
+                                          Theme.of(context).textTheme.display1.copyWith(
+                                          color: Colors.white,
+                                          fontSize: 24.0,
+                                        ),
+                                      ),
+                                    trailing: Icon(Icons.favorite, color: Colors.black, size: 35.0),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 16.0),
+                                      child: Text(
+                                        'Frequencia cardiaca',
+                                        //style: whiteText,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                   
+              const SizedBox(width: 10.0),
+              Expanded(
+                child: Column(
+                  children: <Widget>[
                     Container(
-                      height: 200,
-                      child: PageView(
-                        controller: PageController(viewportFraction: 0.8),
-                        scrollDirection: Axis.horizontal,
-                        pageSnapping: true,
+                      height: 120,
+                      color: Colors.pinkAccent,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.deepPurple,
-                            width: 100,
+                          ListTile(
+                            title: Text(
+                              "2,430",
+                              style:
+                                  Theme.of(context).textTheme.display1.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 24.0,
+                                      ),
+                            ),
+                            trailing: Icon(FontAwesomeIcons.fire, color: Colors.black),
                           ),
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.deepPurple,
-                            width: 100,
-                          ),
-                          Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            color: Colors.deepPurple,
-                            width: 100,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16.0),
+                            child: Text(
+                              'Calorias perdidas',
+                              //style: whiteText,
+                            ),
                           ),
                         ],
                       ),
                     ),
-
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                  
                         
-                  ),
-                    
+
+                    const SizedBox(height: 10.0),
+                    Container(
+                      height: 190,
+                      color: Colors.deepPurple,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          ListTile(
+                            title: Text(
+                              "15 kms",
+                              style: TextStyle(
+                                //Theme.of(context).textTheme.display1.copyWith(
+                                fontSize: 25.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            trailing: Icon(FontAwesomeIcons.road, color: Colors.black),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 16.0),
+                            child: Text(
+                              'Distancia percorrida',
+                              style:  TextStyle(
+                                fontSize: 15.0,
+                              ),
+                             ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )
+        
+    
                   ],
                 ),
               ),
@@ -238,6 +350,4 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         ),
       );
     }
-
-    
 }

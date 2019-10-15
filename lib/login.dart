@@ -6,9 +6,13 @@ import './about.dart';
 import 'home.dart';
 import 'main.dart';
 import 'resetpassword.dart';
-
+import 'package:groovin_material_icons/groovin_material_icons.dart';
 
 class LoginPage extends StatefulWidget {
+  LoginPage({
+    Key key,
+  }): super(key: key);
+  
   @override
   _LoginPageState createState() => new _LoginPageState();
     
@@ -16,6 +20,10 @@ class LoginPage extends StatefulWidget {
 
 
 class _LoginPageState extends State<LoginPage> {
+
+ final _formKey = GlobalKey<FormState>();
+ String _user, _pass;
+ bool _isObscured = true;
 
   @override
   void initState(){
@@ -35,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 
                 Container(
-                  padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(15.0, 85.0, 0.0, 0.0),
                   child: Text(
                     "Hello",
                     style: TextStyle(
@@ -44,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   Container(
-                  padding: EdgeInsets.fromLTRB(15.0, 175.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(15.0, 150.0, 0.0, 0.0),
                   child: Text(
                     "There",
                     style: TextStyle(
@@ -53,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   Container(
-                  padding: EdgeInsets.fromLTRB(220.0, 175.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(220.0, 150.0, 0.0, 0.0),
                   child: Text(
                     ".",
                     style: TextStyle(
@@ -62,12 +70,13 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   Container(
-                    padding: EdgeInsets.only(top: 320.0, left: 20.0, right: 20.0),
+                    padding: EdgeInsets.only(top: 280.0, left: 20.0, right: 20.0),
                     child: Column(
                       children: <Widget>[
                         TextField(
+                          
                           decoration: InputDecoration(
-                            labelText: 'user name',
+                            labelText: 'User name',
                             labelStyle: TextStyle(
                               color: Colors.white
                             ),
@@ -76,6 +85,8 @@ class _LoginPageState extends State<LoginPage> {
                             )
                             )
                           ),
+                        
+                          
                           SizedBox(height: 20.0,)
                         //)
                       ],
@@ -83,21 +94,39 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                    Container(
-                    padding: EdgeInsets.only(top: 390.0, left: 20.0, right: 20.0),
+                    padding: EdgeInsets.only(top: 350.0, left: 20.0, right: 20.0),
                     child: Column(
                       children: <Widget>[
                         TextField(
+                        
                           decoration: InputDecoration(
-                            labelText: 'password',
-                            labelStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15.0,                                     
-                                    ),                            
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide (color: Colors.grey)
-                            )
+                            labelText: 'Password',
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.remove_red_eye, color: Colors.grey,),
+
+                              onPressed: (){
+                                if(_isObscured){
+                                  setState(() {
+                                    _isObscured = false;                                    
+                                  });
+                                }
+                                else{
+                                  setState(() {
+                                    _isObscured = true;                                    
+                                  });
+                                }
+                              },
                             ),
-                            obscureText: true,                           
+                            labelStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15.0,                                     
+                           ),                            
+          
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide (color: Colors.grey)
+                              )
+                            ),
+                            obscureText: _isObscured,                           
                           ),
                           SizedBox(height: 5.0),
                           
@@ -148,7 +177,12 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             
                           ), 
-                          )
+                          ),
+
+
+
+
+                          
                      ],
                     ),
                   ),

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:minhappteste/data.dart';
+
  
-class ResetPasswordPage extends StatefulWidget {
+class AgendePage extends StatefulWidget {
   @override
-  _ResetPasswordState createState() => new _ResetPasswordState();
+  _AgendePageState createState() => new _AgendePageState();
 }
  
-class _ResetPasswordState extends State<ResetPasswordPage> {
+class _AgendePageState extends State<AgendePage> {
   @override
+   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -31,4 +33,3 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
     );
   }
 }
-
