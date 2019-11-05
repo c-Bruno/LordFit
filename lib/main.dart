@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:minhappteste/date.dart';
+import 'package:minhappteste/personal.dart';
 import 'training.dart';
 import 'profile.dart';
 import './about.dart';
@@ -30,15 +30,15 @@ runApp(MaterialApp(
 
 
       debugShowCheckedModeBanner: false,
-
+         
       routes: {
       '/singnup': (context) => MenuDashboardPage(),
       '/resetpassword': (context) => ResetPasswordPage(),
       '/profile': (context) => ProfilePage(),
       '/training': (context) => TrainingPage(),
       '/about': (context) => AboutPage(),
-      '/data': (context) => DataPage(),
       '/login': (context) => LoginPage(),
+      '/personal': (context) => PersonalPage(),
       
       },
 

@@ -92,8 +92,7 @@ class _TrainingPageState extends State<TrainingPage> {
              
              
 
-             SizedBox( height: 20,),
-
+             SizedBox( height: 1),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -170,7 +169,7 @@ class _TrainingPageState extends State<TrainingPage> {
 
 
               
-            SizedBox(height: 20,),
+            SizedBox(height: 6),
 // aciona carousel de imagens 
              Stack(
                 children: <Widget>[

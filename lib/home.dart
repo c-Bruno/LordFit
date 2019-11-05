@@ -6,6 +6,7 @@ import 'profile.dart';
 import 'about.dart';
 import 'training.dart';
 
+
 final Color backgroundColor = Color(0xFF0f0f0f);
 
 class MenuDashboardPage extends StatefulWidget {
@@ -111,8 +112,16 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
 
                       new ListTile(
                         title: new Text('Meu treino'),
+                        //trailing: Icon(Icons.account_circle, color: Colors.white),
                         onTap: () {
                          Navigator.pushNamed(context, '/training'); 
+                        }
+                      ),
+
+                      new ListTile(
+                        title: new Text('Mestre'),
+                        onTap: () {
+                          Navigator.pushNamed(context, '/personal');
                         }
                       ),
 
@@ -153,7 +162,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
               physics: ClampingScrollPhysics(),
               
               child: Container(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 48),
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 18),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -203,7 +212,10 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         )
                       ],
                     ),
-
+                  
+                  SizedBox(height: 50.0),
+                 ///*
+                  _graficobola(),
                   const SizedBox(height: 50.0),
                     Row(
                       children: <Widget>[
@@ -256,7 +268,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                                           fontSize: 24.0,
                                         ),
                                       ),
-                                    trailing: Icon(Icons.favorite, color: Colors.black, size: 35.0),
+                                    trailing: Icon(FontAwesomeIcons.heartbeat, color: Colors.black, size: 35.0),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 16.0),
@@ -291,7 +303,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                                         fontSize: 24.0,
                                       ),
                             ),
-                            trailing: Icon(FontAwesomeIcons.fire, color: Colors.black),
+                            trailing: Icon(FontAwesomeIcons.fire, color: Colors.black, size: 30.0),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
@@ -341,7 +353,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
             ],
           )
         
-    
+   // */
                   ],
                 ),
               ),
@@ -350,4 +362,43 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         ),
       );
     }
+
+    Widget _graficobola() {
+    return Row(
+      children: <Widget>[
+        Container(
+          height: 100,
+          width: 100,
+          padding: const EdgeInsets.all(5.0),
+          child: CircularProgressIndicator(
+            value: 0.6, //para alterar a porcentagem do grafico, alterar esse valor
+            
+            valueColor: AlwaysStoppedAnimation(Colors.blue),
+            backgroundColor: Colors.grey.shade700,
+          ),
+        ),
+        const SizedBox(width: 20.0),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "Overall\nProgress",
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              Text(
+                "60% até agora",
+                style: TextStyle(color: Colors.grey, fontSize: 16.0),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
 }
+
+

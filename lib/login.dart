@@ -6,7 +6,7 @@ import './about.dart';
 import 'home.dart';
 import 'main.dart';
 import 'resetpassword.dart';
-import 'package:groovin_material_icons/groovin_material_icons.dart';
+
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
 
-                   Container(
+                  Container(
                     padding: EdgeInsets.only(top: 350.0, left: 20.0, right: 20.0),
                     child: Column(
                       children: <Widget>[
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: (){
                                 if(_isObscured){
                                   setState(() {
-                                    _isObscured = false;                                    
+                                    _isObscured = false;                                 
                                   });
                                 }
                                 else{
@@ -154,16 +154,18 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox (height: 10.0),
                           Container(
                             height: 40.0,
-                            child: Material(
+                            
+
+                          child: GestureDetector(  
+                          onTap:() {
+                           Navigator.pushNamed(context, '/singnup');
+                          },
+
+                              child: Material(
                               borderRadius: BorderRadius.circular(20.0),
                               shadowColor: Colors.black,
                               color: Colors.purple,
                               elevation: 7.0,
-
-                              child: GestureDetector(  
-                                onTap:() {
-                                 Navigator.pushNamed(context, '/singnup');
-                                },
 
                                 child: Center(
                                   child: Text(
@@ -174,15 +176,9 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ),
                               ),
-                            ),
-                            
+                            ),                            
                           ), 
-                          ),
-
-
-
-
-                          
+                          ),                          
                      ],
                     ),
                   ),

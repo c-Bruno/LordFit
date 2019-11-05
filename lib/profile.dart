@@ -105,7 +105,7 @@ Widget build(BuildContext context) {
                     width: 95.0,
                     child: Material(
                       borderRadius: BorderRadius.circular(20.0),
-                      shadowColor: Colors.greenAccent,
+                      //shadowColor: Colors.greenAccent,
                       color: Colors.green,
                       elevation: 7.0,
                       child: GestureDetector(
@@ -131,18 +131,21 @@ Widget build(BuildContext context) {
                     width: 95.0,
                     child: Material(
                       borderRadius: BorderRadius.circular(20.0),
-                      shadowColor: Colors.redAccent,
+                      //shadowColor: Colors.redAccent,
                       color: Colors.red,
                       elevation: 7.0,
                       child: GestureDetector(
                         onTap: () {
-
+                            //Navigator.popUntil(context,ModalRoute.withName('/login'));
+                            Navigator.of(context).popUntil((route) => route.isFirst);
                         },
+                                               
                         child: Center(
                           child: Text(
                             'Log out',
                             style: TextStyle(color: Colors.white, 
                             ),
+                          
                           ),
                         ),
                       ),
