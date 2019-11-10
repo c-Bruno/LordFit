@@ -67,9 +67,9 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
           scale: _menuScaleAnimation,
 
           child: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsets.only(left: 0.0),
             child: Align(
-              //alignment: Alignment.centerLeft,
+              alignment: Alignment.centerLeft,
               
               child: Column(
                 
@@ -80,7 +80,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         gradient: LinearGradient(
                           colors: [            
                             Color(0xFF8),
-                            Color(0xFF993399),
+                            Color(0xFF3f3f3f),
                          ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
@@ -91,12 +91,14 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         currentAccountPicture: new CircleAvatar(
                           backgroundImage: new NetworkImage('http://i.pravatar.cc/300'),
                           
+                          
                         ),
 
 
                       ),
                       
                     new ListTile(
+                        leading: Icon(FontAwesomeIcons.child, color: Colors.white,),
                         title: new Text('Perfil'),
                         onTap: () {
                           Navigator.pushNamed(context, '/profile');
@@ -104,6 +106,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                       ),
 
                       new ListTile(
+                        leading: Icon(FontAwesomeIcons.brain, color: Colors.white,),
                         title: new Text('Sobre'),
                         onTap: () {
                           Navigator.pushNamed(context, '/about');
@@ -111,26 +114,38 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                       ),
 
                       new ListTile(
+                        leading: Icon(FontAwesomeIcons.buffer, color: Colors.white,),
                         title: new Text('Meu treino'),
-                        //trailing: Icon(Icons.account_circle, color: Colors.white),
                         onTap: () {
                          Navigator.pushNamed(context, '/training'); 
                         }
                       ),
 
                       new ListTile(
+                        leading: Icon(FontAwesomeIcons.jedi, color: Colors.white,),
                         title: new Text('Mestre'),
                         onTap: () {
                           Navigator.pushNamed(context, '/personal');
                         }
                       ),
 
-                      /*new ListTile(
-                        title: new Text('Agenda'),
+                      SizedBox(height: 250,),
+                  
+                      new ListTile(
+                        leading: Icon(FontAwesomeIcons.rebel, color: Colors.white,),
+                        
+
+                        title: new Text('Sair', 
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                          )),
+                        
                         onTap: () {
-                          Navigator.pushNamed(context, '/agende');
+                          Navigator.of(context).popUntil((route) => route.isFirst);
                         },
-                      ),*/
+                      ),
                       
                 ],
               ),
@@ -160,21 +175,20 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
               scrollDirection: Axis.vertical,
               
               physics: ClampingScrollPhysics(),
-              
+
               child: Container(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 18),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     
-                    Row(
-                      
+                    Row(                    
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.max,
-                                           
+                      //mainAxisSize: MainAxisSize.max,
+                                       
                       children: [
                         InkWell(
-                          child: Icon(Icons.menu, color: Colors.white),
+                          child: Icon(Icons.menu, color: Colors.white, size: 35.0),
                           onTap: () {
                             setState(() {
                               if (isCollapsed)
@@ -187,13 +201,20 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                             });
                           },
                         ),
-                        Text("Home", style: TextStyle(fontSize: 24, color: Colors.white)),
+                        
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text("Hello" + " teste", style: TextStyle(fontSize: 24, color: Colors.white)),
 
+                        SizedBox(
+                          width: 20,
+                        ),
 
-                        InkWell(
+                       InkWell(
                         child: Icon(
                             Icons.settings, 
-                            color: Colors.white
+                            color: Colors.white,
                           ),
 
                           onTap: () {
@@ -206,8 +227,6 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
 
                               isCollapsed = !isCollapsed;
                             });
-
-//                            Navigator.pushNamed(context, '/profile');
                           },
                         )
                       ],
@@ -217,7 +236,10 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                  ///*
                   _graficobola(),
                   const SizedBox(height: 50.0),
-                    Row(
+
+                  
+                  
+                  /*  Row(
                       children: <Widget>[
                         Expanded(
                           child: Column(
@@ -351,7 +373,21 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                 ),
               )
             ],
-          )
+          )*/
+                  SizedBox(height: 20),
+                    Text("Progresso", style: TextStyle(color: Colors.white, fontSize: 20),),
+                    ListView.separated(
+                      shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                      return ListTile(
+                       leading: Icon(FontAwesomeIcons.apple, color: Colors.white,),
+                        title: Text("Macbook"),
+                        subtitle: Text("Apple"),
+                        trailing: Text("-2900"),
+                      );
+                    }, separatorBuilder: (context, index) {
+                      return Divider(height: 16);
+                    }, itemCount: 3) //altera a quantidade de itens presentes na composição da lista retornada
         
    // */
                   ],
@@ -362,6 +398,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         ),
       );
     }
+
+    
 
     Widget _graficobola() {
     return Row(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minhappteste/widgets/favorites.dart';
  
 class AboutPage extends StatefulWidget {
   @override
@@ -6,6 +7,9 @@ class AboutPage extends StatefulWidget {
 }
  
 class _AboutPageState extends State<AboutPage> {
+  int selectedIndex = 0;
+   //final List<String> favorites = ('Messagens' 'Online' 'Grupos' 'Requests') as List<String>;
+ 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -18,6 +22,23 @@ class _AboutPageState extends State<AboutPage> {
        ),
        
       ),
+      
+      
+        body: Column(
+          children: <Widget>[
+          Expanded(
+            child: Container(
+              child: Column(
+              children: <Widget>[
+              Favorite(),
+            
+              ],
+              ),
+            ),
+            ),
+          ]
+        ),
+
     );
   }
 }

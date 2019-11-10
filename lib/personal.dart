@@ -51,17 +51,17 @@ class _PersonalPageState extends State<PersonalPage> {
                               TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40)
                             ,)),
                             SizedBox(height: 20,),
-                           /* Row(
+                            Row(
                               children: <Widget>[
                                 FadeAnimation(1.2, 
-                                  Text("60 Videos", style: TextStyle(color: Colors.grey, fontSize: 16),)
+                                  Text("Avaliação: ", style: TextStyle(color: Colors.white, fontSize: 16),)
                                 ),
-                                SizedBox(width: 50,),
-                                FadeAnimation(1.3, Text("240K Subscribers", style: 
-                                  TextStyle(color: Colors.grey, fontSize: 16)
+                                SizedBox(width: 8,),
+                                FadeAnimation(1.3, Text("9.8", style: 
+                                  TextStyle(color: Colors.white, fontSize: 16)
                                 ,))
                               ],
-                            )*/
+                            )
                           ],
                         ),
                       ),
@@ -78,26 +78,32 @@ class _PersonalPageState extends State<PersonalPage> {
                       children: <Widget>[
                         FadeAnimation(1.6, Text("Ewan é filho de Carol Diane McGregor, uma professora que ainda mora em Perthshire, mas agora virou a assistente pessoal de McGregor. Seu pai, James Charles Stewart McGregor — conhecido como Jim –, foi por muitos anos um professor de física que trabalhava em Morrison's Academy, a escola particular que Ewan estudou desde pequeno, assim como seu irmão mais velho Colin.", 
                         style: TextStyle(color: Colors.grey, height: 1.4),)),
+
                         SizedBox(height: 40,),
                         FadeAnimation(1.6, 
-                          Text("Born", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
+                          Text("Nascimento", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
                         ),
+
                         SizedBox(height: 10,),
                         FadeAnimation(1.6, 
                           Text("April, 15th 1990, Paris, France", style: TextStyle(color: Colors.grey),)
                         ),
+
                         SizedBox(height: 20,),
                         FadeAnimation(1.6, 
-                          Text("Nationality", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
+                          Text("Nacionalidade", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
                         ),
+
                         SizedBox(height: 10,),
                         FadeAnimation(1.6, 
                           Text("British", style: TextStyle(color: Colors.grey),)
                         ),
+
                         SizedBox(height: 20,),
                         FadeAnimation(1.6, 
-                          Text("Videos", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
+                          Text("Galeria", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
                         ),
+
                         SizedBox(height: 20,),
                         FadeAnimation(1.8, Container(
                           height: 200,
@@ -110,6 +116,7 @@ class _PersonalPageState extends State<PersonalPage> {
                             ],
                           ),
                         )),
+                        
                         SizedBox(height: 120,)
                       ],
                     ),
@@ -131,7 +138,11 @@ class _PersonalPageState extends State<PersonalPage> {
                       borderRadius: BorderRadius.circular(50),
                       color: Colors.purple[700]
                     ),
-                    child: Align(child: Text("Solicitar personal", style: TextStyle(color: Colors.white),)),
+                    child: Align(child: Text("Solicitar Personal", 
+                      style: TextStyle(                       
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                        ),)),
                   ),
                 ),
               ),
@@ -165,7 +176,7 @@ class _PersonalPageState extends State<PersonalPage> {
             )
           ),
           child: Align(
-            child: Icon(Icons.play_arrow, color: Colors.white, size: 70,),
+            //child: Icon(Icons.play_arrow, color: Colors.white, size: 70,),
           ),
         ),
       ),

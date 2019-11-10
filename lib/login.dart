@@ -1,3 +1,4 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'training.dart';
@@ -72,11 +73,12 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     padding: EdgeInsets.only(top: 280.0, left: 20.0, right: 20.0),
                     child: Column(
+                      
                       children: <Widget>[
                         TextField(
                           
                           decoration: InputDecoration(
-                            labelText: 'User name',
+                            labelText: 'Usuario',
                             labelStyle: TextStyle(
                               color: Colors.white
                             ),
@@ -100,14 +102,14 @@ class _LoginPageState extends State<LoginPage> {
                         TextField(
                         
                           decoration: InputDecoration(
-                            labelText: 'Password',
+                            labelText: 'Senha',
                             suffixIcon: IconButton(
                               icon: Icon(Icons.remove_red_eye, color: Colors.grey,),
 
                               onPressed: (){
                                 if(_isObscured){
                                   setState(() {
-                                    _isObscured = false;                                 
+                                    _isObscured = false;                                                               
                                   });
                                 }
                                 else{
