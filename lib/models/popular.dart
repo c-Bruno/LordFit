@@ -3,17 +3,17 @@ import 'user_model.dart';
 class Message {
   final User sender;
   final String
-      time; // Would usually be type DateTime or Firebase Timestamp in production apps
+      time; 
   final String text;
-  final bool isLiked;
-  final bool unread;
+ /* final bool isLiked;
+  final bool unread;*/
 
   Message({
     this.sender,
     this.time,
     this.text,
-    this.isLiked,
-    this.unread,
+   /* this.isLiked,
+    this.unread,*/
   });
 }
 
@@ -52,104 +52,45 @@ final User jane =
 final User cap =
     User(id: 10, name: 'Rogers', imageUrl: 'assets/images/cap.jpg');
 
-// FAVORITE CONTACTS
+//_________________________________________________________________________
+
+final User vader =
+    User(id: 11, name: 'Vader', imageUrl: 'assets/images/Vader.jpg');
+
+    final User yoda =
+    User(id: 10, name: 'Yoda', imageUrl: 'assets/images/yoda.jpg');
+
+//_________________________________________________________________________
+
 List<User> favorites = [cap, amber, hugh, momoa, emma, kenobi, chris, margot, bruce, jane ];
 
-// EXAMPLE CHATS ON HOME SCREEN
-/*List<Message> chats = [
+List<Message> chats = [
   Message(
-    sender: james,
-    time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: true,
+    sender: kenobi,
+    text: 'Eai, bora treinar ?',
   ),
   Message(
-    sender: olivia,
-    time: '4:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: true,
+    sender: margot,
+    text: 'No pain no gain !!',
   ),
   Message(
-    sender: john,
-    time: '3:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
+    sender: bruce,
+    text: 'Se você sempre faz as mesmas coisas, você sempre terá os mesmos resultados.',
   ),
   Message(
-    sender: sophia,
-    time: '2:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: true,
+    sender: yoda,
+    text: 'O maior prazer da vida é fazer algo que as pessoas acreditam que você não consegue',
   ),
   Message(
-    sender: steven,
-    time: '1:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
+    sender: vader,
+    text: 'Se não existe esforço, não existe progresso',
   ),
   Message(
-    sender: sam,
-    time: '12:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
+    sender: emma,
+    text: 'Eu não me alimento pelo gosto, mas sim pela função da comida',
   ),
   Message(
-    sender: greg,
-    time: '11:30 AM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: false,
-    unread: false,
+    sender: chris,
+    text: 'Estimule, não aniquile.',
   ),
 ];
-
-// EXAMPLE MESSAGES IN CHAT SCREEN
-List<Message> messages = [
-  Message(
-    sender: james,
-    time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: true,
-    unread: true,
-  ),
-  Message(
-    sender: currentUser,
-    time: '4:30 PM',
-    text: 'Just walked my doge. She was super duper cute. The best pupper!!',
-    isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
-    time: '3:45 PM',
-    text: 'How\'s the doggo?',
-    isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
-    time: '3:15 PM',
-    text: 'All the food',
-    isLiked: true,
-    unread: true,
-  ),
-  Message(
-    sender: currentUser,
-    time: '2:30 PM',
-    text: 'Nice! What kind of food did you eat?',
-    isLiked: false,
-    unread: true,
-  ),
-  Message(
-    sender: james,
-    time: '2:00 PM',
-    text: 'I ate so much food today.',
-    isLiked: false,
-    unread: true,
-  ),
-];*/

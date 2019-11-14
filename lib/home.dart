@@ -109,7 +109,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         leading: Icon(FontAwesomeIcons.brain, color: Colors.white,),
                         title: new Text('Sobre'),
                         onTap: () {
-                          Navigator.pushNamed(context, '/about');
+                          
                         }
                       ),
 
@@ -125,7 +125,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         leading: Icon(FontAwesomeIcons.jedi, color: Colors.white,),
                         title: new Text('Mestre'),
                         onTap: () {
-                          Navigator.pushNamed(context, '/personal');
+                          //Navigator.pushNamed(context, '/personal');
+                          Navigator.pushNamed(context, '/aboutpersonal');
                         }
                       ),
 
@@ -236,154 +237,18 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                  ///*
                   _graficobola(),
                   const SizedBox(height: 50.0),
-
                   
-                  
-                  /*  Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                height: 190,
-                                color: Colors.blue,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    ListTile(
-                                      title: Text(
-                                        "9,850",
-                                        style:
-                                        Theme.of(context).textTheme.display1.copyWith(
-                                          color: Colors.black,
-                                          fontSize: 25.0,
-                                        ),
-                                      ),
-                                     trailing: Icon(FontAwesomeIcons.walking, color: Colors.black, size: 49.0,),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 16.0),
-                                      child: Text(
-                                        'Passos',
-                                        style: TextStyle(
-                                          fontSize: 20.0
-                                        ),
-                                        //style: whiteText,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 10.0),
-                              Container(
-                                height: 120,
-                                color: Colors.teal,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    ListTile(
-                                      title: Text(
-                                        "70 bpm",
-                                        style:
-                                          Theme.of(context).textTheme.display1.copyWith(
-                                          color: Colors.white,
-                                          fontSize: 24.0,
-                                        ),
-                                      ),
-                                    trailing: Icon(FontAwesomeIcons.heartbeat, color: Colors.black, size: 35.0),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 16.0),
-                                      child: Text(
-                                        'Frequencia cardiaca',
-                                        //style: whiteText,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                   
-              const SizedBox(width: 10.0),
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      height: 120,
-                      color: Colors.pinkAccent,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ListTile(
-                            title: Text(
-                              "2,430",
-                              style:
-                                  Theme.of(context).textTheme.display1.copyWith(
-                                        color: Colors.white,
-                                        fontSize: 24.0,
-                                      ),
-                            ),
-                            trailing: Icon(FontAwesomeIcons.fire, color: Colors.black, size: 30.0),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 16.0),
-                            child: Text(
-                              'Calorias perdidas',
-                              //style: whiteText,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                        
 
-                    const SizedBox(height: 10.0),
-                    Container(
-                      height: 190,
-                      color: Colors.deepPurple,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          ListTile(
-                            title: Text(
-                              "15 kms",
-                              style: TextStyle(
-                                //Theme.of(context).textTheme.display1.copyWith(
-                                fontSize: 25.0,
-                                color: Colors.black,
-                              ),
-                            ),
-                            trailing: Icon(FontAwesomeIcons.road, color: Colors.black),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 16.0),
-                            child: Text(
-                              'Distancia percorrida',
-                              style:  TextStyle(
-                                fontSize: 15.0,
-                              ),
-                             ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          )*/
-                  SizedBox(height: 20),
+                 SizedBox(height: 20),
                     Text("Progresso", style: TextStyle(color: Colors.white, fontSize: 20),),
                     ListView.separated(
                       shrinkWrap: true,
                         itemBuilder: (context, index) {
                       return ListTile(
-                       leading: Icon(FontAwesomeIcons.apple, color: Colors.white,),
-                        title: Text("Macbook"),
-                        subtitle: Text("Apple"),
-                        trailing: Text("-2900"),
+                       leading: Icon(Icons.fitness_center, color: Colors.white,),
+                        title: Text("Exercicios"),
+                        subtitle: Text("Fitness"),
+                        trailing: Text("+15kg"),
                       );
                     }, separatorBuilder: (context, index) {
                       return Divider(height: 16);

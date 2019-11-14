@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:minhappteste/personal.dart';
+import 'package:minhappteste/sigup.dart';
+import 'package:minhappteste/sigup.dart';
 import 'training.dart';
 import 'profile.dart';
 import './about.dart';
@@ -36,9 +38,10 @@ runApp(MaterialApp(
       '/resetpassword': (context) => ResetPasswordPage(),
       '/profile': (context) => ProfilePage(),
       '/training': (context) => TrainingPage(),
-      '/about': (context) => AboutPage(),
+      '/aboutpersonal': (context) => AboutPage(),
       '/login': (context) => LoginPage(),
       '/personal': (context) => PersonalPage(),
+      '/new': (context) => RegisterPage(),
       
       },
 

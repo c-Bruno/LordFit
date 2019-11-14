@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minhappteste/widgets/favorites.dart';
+import 'package:minhappteste/widgets/indicados.dart';
  
 class AboutPage extends StatefulWidget {
   @override
@@ -8,22 +9,10 @@ class AboutPage extends StatefulWidget {
  
 class _AboutPageState extends State<AboutPage> {
   int selectedIndex = 0;
-   //final List<String> favorites = ('Messagens' 'Online' 'Grupos' 'Requests') as List<String>;
  
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        
-          leading: IconButton(
-         icon: Icon(Icons.arrow_back_ios),
-         color: Colors.white,
-         onPressed: () => Navigator.pop(context, false),
-       ),
-       
-      ),
-      
-      
+    return new Scaffold(        
         body: Column(
           children: <Widget>[
           Expanded(
@@ -31,6 +20,19 @@ class _AboutPageState extends State<AboutPage> {
               child: Column(
               children: <Widget>[
               Favorite(),
+             
+             /*SizedBox(height: 20,),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                  Text(  
+                    'Melhores avaliados',
+                  )
+                ],
+              ),
+               SizedBox(height: 20,),*/
+
+              Indicados()
             
               ],
               ),

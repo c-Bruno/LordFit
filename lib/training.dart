@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'data.dart';
 import 'dart:math';
 import 'main.dart';
@@ -68,7 +69,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     
                     IconButton(
                       icon: Icon(
-                        Icons.arrow_back_ios,
+                        Icons.arrow_back,
                         color: Colors.white,
                         size: 25.0,
                       ),
@@ -109,7 +110,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     
                     
                     //Menu de editar 
-                    PopupMenuButton <String>(
+                   /* PopupMenuButton <String>(
                        color: Color(0xFF6a0499),
                       icon: Icon(Icons.create, size: 25),
                       
@@ -124,7 +125,7 @@ class _TrainingPageState extends State<TrainingPage> {
                       },
                      ),
                     
-                    /*IconButton(
+                    IconButton(
                       icon: Icon(
                         Icons.more_horiz,
                         size: 20.0,
@@ -149,20 +150,40 @@ class _TrainingPageState extends State<TrainingPage> {
                         color: Color(0xFF6a0499),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
+
                       child: Center(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 22.0, vertical: 6.0),
+                              
                           child: Text("Treino A",
                               style: TextStyle(color: Colors.white)),
                         ),
                       ),
                     ),
-                    SizedBox(
+
+
+                    PopupMenuButton <String>(
+                       color: Color(0xFF6a0499),
+                      icon: Icon(Icons.edit, size: 25),
+                      
+                       onSelected: choiceAction,
+                        itemBuilder: (BuildContext context){                         
+                          return Constants.choices.map((String choice){
+                            return PopupMenuItem<String>(                              
+                              value: choice,
+                              child: Text(choice),
+                            );
+                          }).toList();
+                      },
+                     ),
+
+
+                   /*SizedBox(
                       width: 15.0,
                     ),
                     Text("25+ Stories",
-                        style: TextStyle(color: Colors.white))
+                        style: TextStyle(color: Colors.white))*/
                   ],
                 ),
               ),
@@ -227,8 +248,8 @@ class CardScrollWidget extends StatelessWidget {
           var start = padding +
               max(
                   primaryCardLeft -
-                      horizontalInset * -delta * (isOnRight ? 15 : 1),
-                  0.0);
+                  horizontalInset * -delta * (isOnRight ? 15 : 1),
+              0.0);
 
           var cardItem = Positioned.directional(
             top: padding + verticalInset * max(-delta, 0.0),
@@ -263,8 +284,11 @@ class CardScrollWidget extends StatelessWidget {
                               child: Text(title[i],
                                   style: TextStyle(
                                       color: Colors.white,
+                                      fontWeight: FontWeight.bold,
                                       fontSize: 25.0,
-                                      fontFamily: "SF-Pro-Text-Regular")),
+                                      //fontFamily: "SF-Pro-Text-Regular"
+                                  )
+                                ),
                             ),
 
                             SizedBox(
@@ -284,7 +308,8 @@ class CardScrollWidget extends StatelessWidget {
                                 child: Text("+ Informações",
                                     style: TextStyle(
                                       color: Colors.white
-                                    )),
+                                    ),
+                                ),
                               ),
                             )
                           ],

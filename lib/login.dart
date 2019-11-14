@@ -99,8 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(top: 350.0, left: 20.0, right: 20.0),
                     child: Column(
                       children: <Widget>[
-                        TextField(
-                        
+                        TextField(                        
                           decoration: InputDecoration(
                             labelText: 'Senha',
                             suffixIcon: IconButton(
@@ -151,13 +150,11 @@ class _LoginPageState extends State<LoginPage> {
                              
                               ),
                             ),
-                        //)
-                      
-                          SizedBox (height: 10.0),
+                        //)                     
+                          SizedBox (height: 20.0),
                           Container(
                             height: 40.0,
                             
-
                           child: GestureDetector(  
                           onTap:() {
                            Navigator.pushNamed(context, '/singnup');
@@ -180,7 +177,33 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),                            
                           ), 
-                          ),                          
+                       ),  
+
+                        SizedBox (height: 10.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'Novo aqui ?',
+                            ),
+                            SizedBox(width: 5.0,),
+
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/new');
+                              },
+                              child: Text('Cadastre-se',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.purple,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline
+                              ),),
+
+                            ),
+                          ],
+                        )
+
                      ],
                     ),
                   ),

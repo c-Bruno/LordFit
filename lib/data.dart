@@ -7,8 +7,8 @@ List < String > images = [
 ];
 
 List < String > title = [
-  "Terra montada" ,
-  "Apaixonado" ,
-  "A lua sonhadora" ,
-  "Jack, o persa e o castelo preto" ,
+  "Remada alta" ,
+  "Levantamento com barra" ,
+  "Rosca concentrada" ,
+  "Flexão com peso" ,
 ];
