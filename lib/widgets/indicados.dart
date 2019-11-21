@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:minhappteste/models/popular.dart';
+import 'package:minhappteste/models/user_model.dart';
+
+List<User> clicado = [];
 
 class Indicados extends StatelessWidget{
   @override
@@ -50,6 +53,10 @@ class Indicados extends StatelessWidget{
                     child: InkWell(                         
                       onTap: (){
                         Navigator.pushNamed(context, '/personal');
+                        final User cliquei = 
+                                  User(id: chat.sender.id, name: chat.sender.name, imageUrl: chat.sender.imageUrl, note: chat.sender.note) ;
+
+                             clicado = [cliquei];  
                        },
                     ),
                   ),
@@ -62,6 +69,11 @@ class Indicados extends StatelessWidget{
                       child: InkWell(                         
                       onTap: (){
                         Navigator.pushNamed(context, '/personal');
+
+                        final User cliquei = 
+                                  User(id: favorites[index].id, name: favorites[index].name, imageUrl: favorites[index].imageUrl, note: favorites[index].note) ;
+
+                             clicado = [cliquei];  
                        },
                     //),
                       child: Text(                       
@@ -81,6 +93,11 @@ class Indicados extends StatelessWidget{
                      child: InkWell(                         
                       onTap: (){
                         Navigator.pushNamed(context, '/personal');
+
+                        final User cliquei = 
+                                  User(id: favorites[index].id, name: favorites[index].name, imageUrl: favorites[index].imageUrl, note: favorites[index].note) ;
+
+                             clicado = [cliquei];  
                        },
                     child: Text(
                         chat.text,

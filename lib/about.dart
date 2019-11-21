@@ -32,7 +32,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
                SizedBox(height: 20,),*/
 
-              Indicados()
+              Indicados(),
             
               ],
               ),

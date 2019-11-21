@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:minhappteste/models/popular.dart';
+import 'package:minhappteste/models/user_model.dart';
+
+
+List<User> clicado = [];
 
 class Favorite extends StatelessWidget{
+  
   @override
   Widget build (BuildContext context){
     //var favorites;
@@ -57,6 +62,20 @@ class Favorite extends StatelessWidget{
                         child: InkWell(                         
                           onTap: (){
                             Navigator.pushNamed(context, '/personal');
+                            final User cliquei = 
+                                  User(id: favorites[index].id,
+                                       name: favorites[index].name, 
+                                       imageUrl: favorites[index].imageUrl,
+                                       note: favorites[index].note, 
+                                       bio: favorites[index].bio, 
+                                       date: favorites[index].date,
+                                       nationality: favorites[index].nationality,
+                                       image1: favorites[index].image1,
+                                       image2: favorites[index].image2,
+                                       image3: favorites[index].image3,
+                                      );
+
+                             clicado = [cliquei];                  
                            },
                         ),),
                         
