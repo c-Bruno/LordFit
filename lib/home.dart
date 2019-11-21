@@ -46,6 +46,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         screenWidth = size.width;
           
         return Scaffold(
+          resizeToAvoidBottomPadding: false,
           backgroundColor: backgroundColor,
           body: Stack(
             
@@ -67,6 +68,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
           scale: _menuScaleAnimation,
 
           child: Padding(
+            
             padding: const EdgeInsets.only(left: 0.0),
             child: Align(
               alignment: Alignment.centerLeft,
@@ -80,7 +82,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         gradient: LinearGradient(
                           colors: [            
                             Color(0xFF8),
-                            Color(0xFF3f3f3f),
+                            Color(0xFF3f117c),
                          ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
@@ -141,7 +143,9 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                           fontSize: 15,
                           color: Colors.white,
                           fontWeight: FontWeight.bold
-                          )),
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          ),
                         
                         onTap: () {
                           Navigator.of(context).popUntil((route) => route.isFirst);
@@ -162,7 +166,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         duration: duration,
         top: 0,
         bottom: 0,
-        left: isCollapsed ? 0 : 0.6 * screenWidth,
+        left: isCollapsed ? 0 : 0.5 * screenWidth,
         right: isCollapsed ? 0 : -0.2 * screenWidth,
                 
         child: ScaleTransition(
@@ -178,7 +182,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
               physics: ClampingScrollPhysics(),
 
               child: Container(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 18),
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

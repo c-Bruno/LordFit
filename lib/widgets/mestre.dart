@@ -3,6 +3,7 @@ import 'package:minhappteste/FadeAnimation.dart';
 import 'package:minhappteste/models/popular.dart';
 import 'package:minhappteste/models/user_model.dart';
 import 'favorites.dart';
+import 'indicados.dart';
 
 class Mestre extends StatelessWidget{
   @override
@@ -20,11 +21,7 @@ class Mestre extends StatelessWidget{
         child: ListView.builder(     
                
                itemExtent: 400.0,
-                //padding: EdgeInsets.only(top: 30.0,),
-                //scrollDirection: Axis.horizontal,  
-                itemCount: clicado.length,              
-                //itemCount: 10,
-                
+                itemCount: clicado.length,                       
 
         itemBuilder: (BuildContext context, int index){
         return new Container(

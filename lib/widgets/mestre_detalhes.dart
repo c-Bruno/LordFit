@@ -66,7 +66,7 @@ class Detalhes extends StatelessWidget{
                           ),
                         )),
                         
-                        SizedBox(height: 300,)
+                        SizedBox(height: 160,)
                       ],
                     ),
                   )
@@ -94,7 +94,7 @@ class Detalhes extends StatelessWidget{
             gradient: LinearGradient(
               begin: Alignment.bottomRight,
               colors: [
-                Colors.black.withOpacity(.9),
+                Colors.black.withOpacity(.7),
                 Colors.black.withOpacity(.3)
               ]
             )

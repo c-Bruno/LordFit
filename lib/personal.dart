@@ -27,10 +27,6 @@ class _PersonalPageState extends State<PersonalPage> {
               
             /////////////////////////////////  
               Mestre(),              
-            ///////////////////////////////// 
-              
-            /////////////////////////////////
-             
             ],
           ),
           Padding(

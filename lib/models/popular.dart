@@ -25,7 +25,7 @@ final User emma =
     User(id: 3, name: 'Emma', imageUrl: 'assets/images/emma.jpg', note:'9.5', 
     bio:'Emma Charlotte Duerre Watson é uma atriz, modelo e ativista britânica, nascida na França, conhecida mundialmente pelo seu papel como Hermione Granger na série de filmes Harry Potter',
     date: '15 de abril de 1990 (idade 29 anos)', nationality: 'Britânica',
-    image1: 'assets/images/emma-1.jpg', image2: 'assets/images/emma.jpg-2', image3: 'assets/images/emma.jpg-3'
+    image1: 'assets/images/emma-1.jpg', image2: 'assets/images/emma-2.jpg', image3: 'assets/images/emma-3.jpg'
     );
 
 
@@ -82,6 +82,8 @@ final User cap =
 
 
 List<User> favorites = [cap, amber, hugh, momoa, emma, kenobi, chris, margot, bruce, gal];
+
+List<User> indicados = [ gal, emma, margot, cap, kenobi, bruce, momoa, chris, hugh];
 
 //_________________________________________________________________________
 

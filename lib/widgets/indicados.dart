@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:minhappteste/models/popular.dart';
 import 'package:minhappteste/models/user_model.dart';
+import 'favorites.dart';
 
-List<User> clicado = [];
+//List<User> clicado = [];
 
 class Indicados extends StatelessWidget{
   @override
@@ -48,13 +49,23 @@ class Indicados extends StatelessWidget{
                   children: <Widget>[
                   CircleAvatar(
                     radius: 30.0,
-                    backgroundImage: AssetImage(chat.sender.imageUrl),
+                    backgroundImage: AssetImage(indicados[index].imageUrl),
                     
                     child: InkWell(                         
                       onTap: (){
                         Navigator.pushNamed(context, '/personal');
-                        final User cliquei = 
-                                  User(id: chat.sender.id, name: chat.sender.name, imageUrl: chat.sender.imageUrl, note: chat.sender.note) ;
+                            final User cliquei = 
+                                  User(id: indicados[index].id,
+                                       name: indicados[index].name, 
+                                       imageUrl: indicados[index].imageUrl,
+                                       note: indicados[index].note, 
+                                       bio: indicados[index].bio, 
+                                       date: indicados[index].date,
+                                       nationality: indicados[index].nationality,
+                                       image1: indicados[index].image1,
+                                       image2: indicados[index].image2,
+                                       image3: indicados[index].image3,
+                                      );
 
                              clicado = [cliquei];  
                        },
@@ -69,15 +80,26 @@ class Indicados extends StatelessWidget{
                       child: InkWell(                         
                       onTap: (){
                         Navigator.pushNamed(context, '/personal');
-
                         final User cliquei = 
-                                  User(id: favorites[index].id, name: favorites[index].name, imageUrl: favorites[index].imageUrl, note: favorites[index].note) ;
+                                  User(id: indicados[index].id,
+                                       name: indicados[index].name, 
+                                       imageUrl: indicados[index].imageUrl,
+                                       note: indicados[index].note, 
+                                       bio: indicados[index].bio, 
+                                       date: indicados[index].date,
+                                       nationality: indicados[index].nationality,
+                                       image1: indicados[index].image1,
+                                       image2: indicados[index].image2,
+                                       image3: indicados[index].image3,
+                                      );
 
                              clicado = [cliquei];  
+  
                        },
                     //),
                       child: Text(                       
-                        chat.sender.name,
+                        //chat.sender.name,
+                        indicados[index].name,
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 15.0,
@@ -93,11 +115,21 @@ class Indicados extends StatelessWidget{
                      child: InkWell(                         
                       onTap: (){
                         Navigator.pushNamed(context, '/personal');
-
-                        final User cliquei = 
-                                  User(id: favorites[index].id, name: favorites[index].name, imageUrl: favorites[index].imageUrl, note: favorites[index].note) ;
+                                final User cliquei = 
+                                  User(id: indicados[index].id,
+                                       name: indicados[index].name, 
+                                       imageUrl: indicados[index].imageUrl,
+                                       note: indicados[index].note, 
+                                       bio: indicados[index].bio, 
+                                       date: indicados[index].date,
+                                       nationality: indicados[index].nationality,
+                                       image1: indicados[index].image1,
+                                       image2: indicados[index].image2,
+                                       image3: indicados[index].image3,
+                                      );
 
                              clicado = [cliquei];  
+                      
                        },
                     child: Text(
                         chat.text,

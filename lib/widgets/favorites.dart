@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minhappteste/models/popular.dart';
 import 'package:minhappteste/models/user_model.dart';
+import 'package:minhappteste/models/Search.dart';
 
 
 List<User> clicado = [];
@@ -27,6 +28,7 @@ class Favorite extends StatelessWidget{
 
                   Text("Populares",
                     style: TextStyle(
+                    
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
                     letterSpacing: 1.3,
@@ -36,10 +38,12 @@ class Favorite extends StatelessWidget{
                   icon: Icon(
                   Icons.search,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showSearch(context: context, delegate: DataSearch());
+                  },
                   )
                 ],
-              ),      
+              ),                  
             ),
     
             Container(
@@ -88,5 +92,6 @@ class Favorite extends StatelessWidget{
          ),                
       ]
     );
+    
   }
 }

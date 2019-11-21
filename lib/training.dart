@@ -49,7 +49,7 @@ class _TrainingPageState extends State<TrainingPage> {
           gradient: LinearGradient(
               colors: [            
               Color(0xFF8),
-              Color(0xFF531155),
+              Color(0xFF3f117c),
             ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
