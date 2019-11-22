@@ -92,11 +92,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         accountEmail: new Text('testemail@test.com'),
                         currentAccountPicture: new CircleAvatar(
                           backgroundImage: new NetworkImage('http://i.pravatar.cc/300'),
-                          
-                          
+                                                   
                         ),
-
-
                       ),
                       
                     new ListTile(
@@ -111,7 +108,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         leading: Icon(FontAwesomeIcons.brain, color: Colors.white,),
                         title: new Text('Sobre'),
                         onTap: () {
-                          
+                          Navigator.pushNamed(context, '/aboutus');
                         }
                       ),
 

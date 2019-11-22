@@ -14,6 +14,45 @@ class PersonalPage extends StatefulWidget {
  
 class _PersonalPageState extends State<PersonalPage> {
   @override
+  showAlertDialog(BuildContext context) {
+
+  // configura os botões
+  Widget lembrarButton = FlatButton(
+    child: Text("Avaliar"),
+    onPressed:  () {},
+  );
+  Widget cancelaButton = FlatButton(
+    child: Text("Cancelar"),
+    onPressed:  () {},
+  );
+  Widget dispararButton = FlatButton(
+    child: Text("Continuar"),
+    onPressed:  () {},
+  );
+
+
+
+  // configura o  AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Padawan a caminho"),
+    content: Text("Você esta preste a ingressar mais profudamente nos conhecimentos da Força para se tornar um grande Jedi. \n\nDeseja solicitar acompanhamento deste personal ?"),
+    actions: [
+      lembrarButton,
+      cancelaButton,
+      dispararButton,
+    ],
+  );
+
+
+
+  // exibe o dialogo
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
    @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -44,16 +83,23 @@ class _PersonalPageState extends State<PersonalPage> {
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 30),
                     height: 50,
-                    decoration: BoxDecoration(
+                    /*decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: Colors.purple[700]
-                    ),
-                    child: Align(child: Text("Solicitar Personal", 
+                      color: Colors.purple[900]
+                    ),*/
+
+                    child: RaisedButton(
+
+                      onPressed: (){
+                        showAlertDialog(context);
+                      },
+                      color: Colors.purple[900],
+                      child: Align(child: Text("Solicitar Personal", 
                       style: TextStyle(                       
                         color: Colors.white,
                         fontWeight: FontWeight.bold
                         ),)),
-                  ),
+                  ),),
                 ),
               ),
             ),

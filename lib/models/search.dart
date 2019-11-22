@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:minhappteste/models/popular.dart';
 import 'package:minhappteste/models/user_model.dart';
 import 'package:minhappteste/widgets/favorites.dart';
@@ -14,7 +15,7 @@ class DataSearch extends SearchDelegate<String>{
     }
 
 
-  final cities = [
+  final person = [
     "amber",
     "rogers",
     "bruce",
@@ -27,7 +28,7 @@ class DataSearch extends SearchDelegate<String>{
     "teste",
   ];
   
-  final recentCities = [
+  final recentpersons = [
      "Momoa",
     "Kenobi",
     "emma",
@@ -55,6 +56,7 @@ class DataSearch extends SearchDelegate<String>{
        ),
      onPressed: () {
        close(context, null);
+       SystemChrome.setEnabledSystemUIOverlays([]);//esconder status bar
      } );
 
   }
@@ -76,8 +78,8 @@ class DataSearch extends SearchDelegate<String>{
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestionList = query.isEmpty
-    ? recentCities
-    : cities.where((p)=> p.startsWith(query)).toList();
+     ? recentpersons
+    : person.where((p)=> p.startsWith(query)).toList();
 
     return ListView.builder(
       itemBuilder: (context, index) => ListTile (

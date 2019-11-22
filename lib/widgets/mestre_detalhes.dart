@@ -83,7 +83,7 @@ class Detalhes extends StatelessWidget{
       child: Container(
         margin: EdgeInsets.only(right: 20),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
             image: AssetImage(image),
             fit: BoxFit.cover
@@ -94,8 +94,8 @@ class Detalhes extends StatelessWidget{
             gradient: LinearGradient(
               begin: Alignment.bottomRight,
               colors: [
-                Colors.black.withOpacity(.7),
-                Colors.black.withOpacity(.3)
+                Colors.black.withOpacity(.8),
+                Colors.black.withOpacity(.2)
               ]
             )
           ),

@@ -13,9 +13,15 @@ import 'login.dart';
 import 'resetpassword.dart';
 import 'training.dart';
 import 'data.dart';
+import 'aboutus.dart';
 
 
 void main() {
+
+  /*SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.light,
+  ));*/
 
 runApp(MaterialApp(
 
@@ -42,6 +48,7 @@ runApp(MaterialApp(
       '/login': (context) => LoginPage(),
       '/personal': (context) => PersonalPage(),
       '/new': (context) => RegisterPage(),
+      '/aboutus': (context) => AboutusPage(),
       
       },
 

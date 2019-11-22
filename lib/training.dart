@@ -5,6 +5,8 @@ import 'dart:math';
 import 'main.dart';
 import 'home.dart';
 import 'contants.dart';
+import 'package:minhappteste/models/exercise.dart';
+//import 'package:minhappteste/widgets/treino.dart';
 
 
 class TrainingPage extends StatefulWidget {
@@ -17,8 +19,72 @@ class TrainingPage extends StatefulWidget {
 var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
 
+showAlertDialog(BuildContext context) {
+
+
+  // configura os botões
+  Widget lembrarButton = FlatButton(
+    child: Text("Lembrar"),
+    onPressed:  () {},
+  );
+  Widget cancelaButton = FlatButton(
+    child: Text("Cancelar"),
+    onPressed:  () {},
+  );
+  Widget dispararButton = FlatButton(
+    child: Text("Disparar"),
+    onPressed:  () {},
+  );
+
+
+
+  // configura o  AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Aviso"),
+    content: Text("Disparar este míssil vai destruir o mundo."),
+    actions: [
+      lembrarButton,
+      cancelaButton,
+      dispararButton,
+    ],
+  );
+
+
+
+  // exibe o dialogo
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
 class _TrainingPageState extends State<TrainingPage> {
-  var currentPage = images.length - 1.0;
+  var currentPage = training.length - 1.0;
+
+  /*@override
+  void _exibirDialogo() {
+    showDialog(
+       context:  context,
+       builder:  (BuildContext context) {
+         return AlertDialog(
+           title: new Text("Informação"),
+          content: new Text("Isso é um teste"),
+          actions: <Widget>[
+            // define os botões na base do dialogo
+            new FlatButton(
+              child: new Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+         );
+    },
+   );
+}*/
+  
 
 
 // para criação de um novo "menu de edição" é necessario chamar o contants (pelo menos nesse projeto devido a estrutura definida) e modificar linhas a baixo conforme necessario
@@ -28,6 +94,7 @@ class _TrainingPageState extends State<TrainingPage> {
     }
     else if(choice == Constants.createn){
       print('Criar novo treino');
+      
     } 
     else if(choice == Constants.delete){
       print('deletar treino');
@@ -36,7 +103,8 @@ class _TrainingPageState extends State<TrainingPage> {
 
   @override
   Widget build(BuildContext context) {
-    PageController controller = PageController(initialPage: images.length - 1);
+
+    PageController controller = PageController(initialPage: training.length - 1);
     controller.addListener(() {
       setState(() {
         currentPage = controller.page;
@@ -85,7 +153,9 @@ class _TrainingPageState extends State<TrainingPage> {
                         color: Colors.white,
                         size: 25.0,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        showAlertDialog(context);
+                      },
                     )
                   ],
                 ),
@@ -107,35 +177,6 @@ class _TrainingPageState extends State<TrainingPage> {
                           fontFamily: "Calibre-Semibold",
                           letterSpacing: 1.0,
                         )),
-                    
-                    
-                    //Menu de editar 
-                   /* PopupMenuButton <String>(
-                       color: Color(0xFF6a0499),
-                      icon: Icon(Icons.create, size: 25),
-                      
-                       onSelected: choiceAction,
-                        itemBuilder: (BuildContext context){                         
-                          return Constants.choices.map((String choice){
-                            return PopupMenuItem<String>(                              
-                              value: choice,
-                              child: Text(choice),
-                            );
-                          }).toList();
-                      },
-                     ),
-                    
-                    IconButton(
-                      icon: Icon(
-                        Icons.more_horiz,
-                        size: 20.0,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                         Navigator.pushNamed(context, '/menubar');
-                         
-                      },
-                    )*/
                   ],
                 ),
               ),
@@ -164,7 +205,7 @@ class _TrainingPageState extends State<TrainingPage> {
 
 
                     PopupMenuButton <String>(
-                       color: Color(0xFF6a0499),
+                       color: Colors/*(0xFF6a0499)*/.purple[900],
                       icon: Icon(Icons.edit, size: 25),
                       
                        onSelected: choiceAction,
@@ -191,13 +232,13 @@ class _TrainingPageState extends State<TrainingPage> {
 
               
             SizedBox(height: 6),
-// aciona carousel de imagens 
+            // aciona carousel de imagens 
              Stack(
                 children: <Widget>[
                   CardScrollWidget(currentPage),
                   Positioned.fill(
                     child: PageView.builder(
-                      itemCount: images.length,
+                      itemCount: training.length,
                       controller: controller,
                       reverse: true,
                       itemBuilder: (context, index) {
@@ -226,7 +267,7 @@ class CardScrollWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return new AspectRatio(
       aspectRatio: widgetAspectRatio,
-      child: LayoutBuilder(builder: (context, contraints) {
+      child: LayoutBuilder(builder: (BuildContext context, contraints) {
         var width = contraints.maxWidth;
         var height = contraints.maxHeight;
       
@@ -241,7 +282,7 @@ class CardScrollWidget extends StatelessWidget {
 
         List<Widget> cardList = new List();
 
-       for (var i = 0; i < images.length; i++) {
+       for (var i = 0; i < training.length; i++) {
          var delta = i - currentPage;
          bool isOnRight = delta > 0;
 
@@ -271,7 +312,7 @@ class CardScrollWidget extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                     Image.asset(images[i], fit: BoxFit.cover),
+                     Image.asset(training[i].image, fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Column(
@@ -281,7 +322,7 @@ class CardScrollWidget extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 16.0, vertical: 8.0),
-                              child: Text(title[i],
+                              child: Text(training[i].name,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -295,23 +336,26 @@ class CardScrollWidget extends StatelessWidget {
                               height: 10.0,
                             ),
 
-                            Padding(
+                            Container(
                               padding: const EdgeInsets.only(
-                                  left: 12.0, bottom: 12.0),
+                                  left: 10.0, bottom: 10.0),
                               child: Container(
+                                
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: 22.0, vertical: 6.0),
-                                decoration: BoxDecoration(
-                                    //color: Colors.blueAccent,
-                                    color: Color(0xFF6a0499),
-                                    borderRadius: BorderRadius.circular(20.0)),
-                                child: Text("+ Informações",
-                                    style: TextStyle(
-                                      color: Colors.white
+                                    horizontal: 22.0, vertical: 0.0),
+
+                                child: RaisedButton(                                  
+                                  onPressed: () {
+                                    showAlertDialog(context);
+                                  },
+                                    color: Colors.purple[900],
+                                    child: Text("+ Informações",
+                                        style: TextStyle(
+                                        color: Colors.white
                                     ),
                                 ),
-                              ),
-                            )
+                              )),
+                            ),                      
                           ],
                         ),
                       )
@@ -329,6 +373,8 @@ class CardScrollWidget extends StatelessWidget {
       }),
     );
   }
+
   
+
 }
 

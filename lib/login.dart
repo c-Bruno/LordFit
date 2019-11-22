@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text(
                     ".",
                     style: TextStyle(
-                      fontSize: 80.0, fontWeight: FontWeight.bold, color: Colors.purple)
+                      fontSize: 80.0, fontWeight: FontWeight.bold, color: Colors.purple[900])
                     ),
                   ),
 
@@ -103,7 +103,12 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             labelText: 'Senha',
                             suffixIcon: IconButton(
-                              icon: Icon(Icons.remove_red_eye, color: Colors.grey,),
+                              icon: Icon(//Icons.remove_red_eye, color: Colors.grey,),
+                              _isObscured
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                                color: Theme.of(context).primaryColorLight,
+                                ),
 
                               onPressed: (){
                                 if(_isObscured){
@@ -157,13 +162,14 @@ class _LoginPageState extends State<LoginPage> {
                             
                           child: GestureDetector(  
                           onTap:() {
+                            SystemChrome.setEnabledSystemUIOverlays([]);
                            Navigator.pushNamed(context, '/singnup');
                           },
 
                               child: Material(
                               borderRadius: BorderRadius.circular(20.0),
                               shadowColor: Colors.black,
-                              color: Colors.purple,
+                              color: Colors.purple[900],
                               elevation: 7.0,
 
                                 child: Center(
@@ -195,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text('Cadastre-se',
                               style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.purple,
+                                color: Colors.purple[800],
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline
                               ),),

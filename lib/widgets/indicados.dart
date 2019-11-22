@@ -15,7 +15,7 @@ class Indicados extends StatelessWidget{
       padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
 
       decoration: BoxDecoration(
-        color: Colors.black45,
+        color: Colors.black,
         borderRadius:BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
