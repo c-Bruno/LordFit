@@ -68,6 +68,8 @@ class _PersonalPageState extends State<PersonalPage> {
               Mestre(),              
             ],
           ),
+
+          
           Padding(
           padding: EdgeInsets.only(top: 400.0,),
           child: Container(   

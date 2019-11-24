@@ -6,7 +6,7 @@ import 'main.dart';
 import 'home.dart';
 import 'contants.dart';
 import 'package:minhappteste/models/exercise.dart';
-//import 'package:minhappteste/widgets/treino.dart';
+import 'package:minhappteste/widgets/treinos.dart';
 
 
 class TrainingPage extends StatefulWidget {
@@ -111,7 +111,7 @@ class _TrainingPageState extends State<TrainingPage> {
       });
     });
 
-    return Container(
+    return new Container(
       
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -122,6 +122,8 @@ class _TrainingPageState extends State<TrainingPage> {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               tileMode: TileMode.clamp)),
+
+
       child: Scaffold(
         backgroundColor: Colors.transparent,
 
@@ -245,9 +247,25 @@ class _TrainingPageState extends State<TrainingPage> {
                         return Container();
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
+              
+               Stack( 
+                children: <Widget>[            
+                Padding(
+                padding: EdgeInsets.only(top: 20.0,),
+                child: Container(   
+                  child: Treino(),
+                  ),),],)
+                    /*Container(
+              child: Row(
+                children: <Widget>[
+                          Expanded(
+                child: Column(
+                children: <Widget>[*/
+            
+              //]),),],),)
             ],
           ),
         ),

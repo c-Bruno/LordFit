@@ -25,38 +25,45 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-     /*resizeToAvoidBottomPadding: false,
+     resizeToAvoidBottomPadding: false,
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
             Widget>[
-          Container(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.fromLTRB(15.0, 25.0, 0.0, 0.0),
-                  child: Text(
-                    'Signup',
-                    style:
-                        TextStyle(
-                          fontSize: 70.0, 
-                          fontWeight: FontWeight.bold
-                          ),
-                  ),
-                ),
+               Container(
+                    width: 120.0,
+                    height: 120.0,
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                'http://i.pravatar.cc/300'),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.all(Radius.circular(75.0)),
+                        boxShadow: [
+                          BoxShadow(blurRadius: 7.0, color: Colors.black)
+                        ]),
 
-                Container(
-                  padding: EdgeInsets.fromLTRB(230.0, 30.0, 0.0, 0.0),
-                  child: Text(
-                    '.',
-                    style: TextStyle(
-                        fontSize: 70.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.purple
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+                         padding: EdgeInsets.only(top: 63.0, left: 12.0, right: 12.0, bottom: 8.0),
+                        child: Center(
+                        child: Column(
+                          children: <Widget>[
+                             ButtonTheme(
+                               height: 40.0,
+                              child: RaisedButton(
+                                shape: new RoundedRectangleBorder(borderRadius:
+                                  new BorderRadius.circular(25.0)),
+
+                                  onPressed: (){
+                                    showAlertDialog(context);
+                                  },
+                                  color: Colors.transparent,
+                                  child: Align(child: Text("Editar", 
+                                  style: TextStyle(                       
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold
+                                    ),)),
+                              ),
+                        )],) ),                      
+                      ),
           
           Container(
               padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
@@ -88,17 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   
                   SizedBox(height: 10.0),
                   TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Rg',
-                        labelStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.purple))),
-                  ),
-
-                  SizedBox(height: 10.0),
-                  TextField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         labelText: 'CPF',
                         labelStyle: TextStyle(
@@ -110,6 +107,19 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   SizedBox(height: 10.0),
                   TextField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                        labelText: 'Altura',
+                        labelStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.purple))),
+                  ),
+
+                  SizedBox(height: 10.0),
+                  TextField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         labelText: 'Peso (kg)',
                         labelStyle: TextStyle(
@@ -136,7 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       height: 40.0,
                       child: Material(
                         borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.purple,
+                        color: Colors.purple[900],
                         elevation: 7.0,
                         child: GestureDetector(
                           onTap: () {},
@@ -184,6 +194,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               )),
-        ])*/);
+        ]));
   }
 }
