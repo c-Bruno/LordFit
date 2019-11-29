@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart'; 
 
+
  
 class ProfilePage extends StatefulWidget {
   @override
@@ -8,7 +9,7 @@ class ProfilePage extends StatefulWidget {
 }
  
 class _ProfilePageState extends State<ProfilePage> {
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: new AppBar(
@@ -71,8 +72,10 @@ Widget build(BuildContext context) {
                     decoration: BoxDecoration(
                         color: Colors.red,
                         image: DecorationImage(
-                            image: NetworkImage(
-                                'http://i.pravatar.cc/300'),
+                            image: NetworkImage(//ver depois
+                                'http://i.pravatar.cc/300'
+                               //''
+                               ),
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.all(Radius.circular(75.0)),
                         boxShadow: [
@@ -110,7 +113,13 @@ Widget build(BuildContext context) {
                       elevation: 7.0,
                       child: GestureDetector(
                         onTap: () {
+                            Navigator.pushNamed(context, '/new');
+                        },
 
+                        child: GestureDetector(
+                        onTap: () {
+                            //Navigator.popUntil(context,ModalRoute.withName('/login'));
+                            Navigator.pushNamed(context, '/new');
                         },
                         child: Center(
                           child: Text(
@@ -122,7 +131,7 @@ Widget build(BuildContext context) {
                         ),
                       ),
                     )),
-
+                ),
 
                 SizedBox(height: 25.0),
 

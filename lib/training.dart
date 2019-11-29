@@ -9,6 +9,7 @@ import 'package:minhappteste/models/exercise.dart';
 import 'package:minhappteste/widgets/treinos.dart';
 
 
+
 class TrainingPage extends StatefulWidget {
   @override
   _TrainingPageState createState() => new _TrainingPageState();
@@ -251,13 +252,13 @@ class _TrainingPageState extends State<TrainingPage> {
                 ],
               ),
               
-               Stack( 
+              /* Stack( 
                 children: <Widget>[            
                 Padding(
                 padding: EdgeInsets.only(top: 20.0,),
                 child: Container(   
                   child: Treino(),
-                  ),),],)
+                  ),),],)*/
                     /*Container(
               child: Row(
                 children: <Widget>[

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:minhappteste/data.dart';
  
 class ResetPasswordPage extends StatefulWidget {
@@ -7,6 +8,42 @@ class ResetPasswordPage extends StatefulWidget {
 }
  
 class _ResetPasswordState extends State<ResetPasswordPage> {
+
+   @override
+  showAlertDialog(BuildContext context) {
+
+  // configura os botões
+  Widget cancelaButton = FlatButton(
+    child: Text("Cancelar"),
+    onPressed:  () {},
+  );
+  Widget dispararButton = FlatButton(
+    child: Text("Continuar"),
+    onPressed:  () {},
+  );
+
+
+
+  // configura o  AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Aviso"),
+    content: Text("Sera encaminhado para o seu endereço de e-mail a recuperação da senha. \n\nDeseja Continuar ?"),
+    actions: [
+      cancelaButton,
+      dispararButton,
+    ],
+  );
+
+
+
+  // exibe o dialogo
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
   
   @override
   Widget build(BuildContext context) {
@@ -17,7 +54,9 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
          icon: Icon(Icons.arrow_back_ios),
          color: Colors.white,
          
-         onPressed: () => Navigator.pop(context, false),
+         onPressed: () { 
+            SystemChrome.setEnabledSystemUIOverlays([]);
+            Navigator.pop(context, false);}
        ),
       ),
 
@@ -31,7 +70,7 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
         child: ListView(
           children: <Widget>[
             Text(
-              "Informe o e-mail atrelado a sua conta",
+              "Insira o seu nome de usuario ",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16.5,  
@@ -45,7 +84,7 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: "E-mail",
+                labelText: "Usuario",
                 labelStyle: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
@@ -90,6 +129,8 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
                      ),
                    ),
                    onPressed:() {
+                      SystemChrome.setEnabledSystemUIOverlays([]);
+                      showAlertDialog(context);
                      //return Alert(context: context, title:"Uma mensagem foi enviada para sua caixa de e-mail para recuperação da senha").show();
                    } ,
                  ),

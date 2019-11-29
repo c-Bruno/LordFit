@@ -26,7 +26,9 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
      resizeToAvoidBottomPadding: false,
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center, children: <
             Widget>[
                Container(
                     width: 120.0,
@@ -34,8 +36,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     decoration: BoxDecoration(
                         color: Colors.red,
                         image: DecorationImage(
-                            image: NetworkImage(
-                                'http://i.pravatar.cc/300'),
+                            image: NetworkImage(//ver depois
+                                'http://i.pravatar.cc/300'
+                              // ''
+                               ),
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.all(Radius.circular(75.0)),
                         boxShadow: [
@@ -66,7 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
           
           Container(
-              padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+              padding: EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
               child: Column(
                 children: <Widget>[
                   TextField(
@@ -141,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
 
 
-                  SizedBox(height: 50.0),
+                  SizedBox(height: 30.0),
                   Container(
                       height: 40.0,
                       child: Material(
@@ -149,7 +153,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         color: Colors.purple[900],
                         elevation: 7.0,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            SystemChrome.setEnabledSystemUIOverlays([]);
+                          },
                           child: Center(
                             child: Text(
                               'Concluir',
@@ -177,6 +183,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           borderRadius: BorderRadius.circular(20.0)),
                       child: InkWell(
                         onTap: () {
+                          SystemChrome.setEnabledSystemUIOverlays([]);
                           Navigator.of(context).pop();
                         },
 

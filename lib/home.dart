@@ -91,7 +91,10 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                         accountName: new Text('teste'),
                         accountEmail: new Text('testemail@test.com'),
                         currentAccountPicture: new CircleAvatar(
-                          backgroundImage: new NetworkImage('http://i.pravatar.cc/300'),
+                          backgroundImage: new NetworkImage(//ver depois
+                                'http://i.pravatar.cc/300'
+                               //''
+                               ),
                                                    
                         ),
                       ),

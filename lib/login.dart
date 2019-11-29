@@ -143,6 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: InkWell(
                               onTap: (){
                               Navigator.pushNamed(context, '/resetpassword');
+                               SystemChrome.setEnabledSystemUIOverlays([]);
                               },
 
                               child: Text('Esqueceu sua senha ?',
@@ -197,6 +198,7 @@ class _LoginPageState extends State<LoginPage> {
                             InkWell(
                               onTap: () {
                                 Navigator.pushNamed(context, '/new');
+                                 SystemChrome.setEnabledSystemUIOverlays([]);
                               },
                               child: Text('Cadastre-se',
                               style: TextStyle(
