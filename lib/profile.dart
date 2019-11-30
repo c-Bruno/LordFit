@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart'; 
-
+import 'package:carousel_pro/carousel_pro.dart';
+import 'package:flutter/services.dart'; 
+import 'package:rflutter_alert/rflutter_alert.dart';
 
  
 class ProfilePage extends StatefulWidget {
@@ -145,13 +146,41 @@ Widget build(BuildContext context) {
                       elevation: 7.0,
                       child: GestureDetector(
                         onTap: () {
+                          return Alert(
+                             //style: Color(Colors.white70),
+                             context: context,
+                             title: "Sinto um disturbio na força!",
+                              desc: "Você esta prestes a deslogar e ficar um passo mais proximo de ser um Lord Sith. \n\n Deseja mesmo continuar ?",
+                              buttons: [
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('Cancelar'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('Continuar'),
+                                  onPressed: () {
+                                    Navigator.of(context).popUntil((route) => route.isFirst);
+                                    SystemChrome.setEnabledSystemUIOverlays([]);
+                                  },
+                                ),
+                              ]
+                             /* actions: [
+                                cancelaButton,
+                                dispararButton,
+                              ], */
+                           ).show();
                             //Navigator.popUntil(context,ModalRoute.withName('/login'));
-                            Navigator.of(context).popUntil((route) => route.isFirst);
+                           // Navigator.of(context).popUntil((route) => route.isFirst);
                         },
                                                
                         child: Center(
                           child: Text(
-                            'Log out',
+                            'Sair',
                             style: TextStyle(color: Colors.white, 
                             ),
                           

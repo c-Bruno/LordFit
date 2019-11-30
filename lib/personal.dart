@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:minhappteste/widgets/mestre.dart';
 import 'package:minhappteste/widgets/mestre_detalhes.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'FadeAnimation.dart';
 import 'package:minhappteste/widgets/favorites.dart';
 import 'package:minhappteste/widgets/indicados.dart';
@@ -13,46 +15,6 @@ class PersonalPage extends StatefulWidget {
 }
  
 class _PersonalPageState extends State<PersonalPage> {
-  @override
-  showAlertDialog(BuildContext context) {
-
-  // configura os botões
-  Widget lembrarButton = FlatButton(
-    child: Text("Avaliar"),
-    onPressed:  () {},
-  );
-  Widget cancelaButton = FlatButton(
-    child: Text("Cancelar"),
-    onPressed:  () {},
-  );
-  Widget dispararButton = FlatButton(
-    child: Text("Continuar"),
-    onPressed:  () {},
-  );
-
-
-
-  // configura o  AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("Padawan a caminho"),
-    content: Text("Você esta preste a ingressar mais profudamente nos conhecimentos da Força para se tornar um grande Jedi. \n\nDeseja solicitar acompanhamento deste personal ?"),
-    actions: [
-      lembrarButton,
-      cancelaButton,
-      dispararButton,
-    ],
-  );
-
-
-
-  // exibe o dialogo
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
    @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -93,7 +55,34 @@ class _PersonalPageState extends State<PersonalPage> {
                     child: RaisedButton(
 
                       onPressed: (){
-                        showAlertDialog(context);
+                       return Alert(
+                             //style: Color(Colors.white70),
+                             context: context,
+                             title: "Padawan a caminho!",
+                              desc: "Você esta preste a ingressar mais profudamente nos conhecimentos da Força para se tornar um grande Jedi. \n\nDeseja solicitar acompanhamento deste personal ?",
+                              buttons: [
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('Cancelar'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('Continuar'),
+                                  onPressed: () {
+                                    //pensar
+                                    SystemChrome.setEnabledSystemUIOverlays([]);
+                                  },
+                                ),
+                              ]
+                             /* actions: [
+                                cancelaButton,
+                                dispararButton,
+                              ], */
+                           ).show();
                       },
                       color: Colors.purple[900],
                       child: Align(child: Text("Solicitar Personal", 

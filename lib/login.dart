@@ -1,12 +1,11 @@
+import 'dart:convert';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'training.dart';
-import 'profile.dart';
-import './about.dart';
-import 'home.dart';
-import 'main.dart';
-import 'resetpassword.dart';
+import 'package:minhappteste/requests/post.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 
 class LoginPage extends StatefulWidget {
@@ -23,7 +22,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
 
  final _formKey = GlobalKey<FormState>();
- String _user, _pass;
+  final userValue = new TextEditingController();
+  final passwordValue = new TextEditingController();
+ //String _user, _pass;
  bool _isObscured = true;
 
   @override
@@ -85,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide (color: Colors.grey)
                             )
-                            )
+                            ),
+                            keyboardType:  TextInputType.emailAddress,
                           ),
                         
                           
@@ -164,6 +166,24 @@ class _LoginPageState extends State<LoginPage> {
                           child: GestureDetector(  
                           onTap:() {
                             SystemChrome.setEnabledSystemUIOverlays([]);
+
+                           /* Future<http.Response>fetchPost(){
+                              return http.get('https://localhost:3000/users/login');
+                            }*/
+
+                           /* Future<Post> fetchPost() async{
+                              final response =
+                                    await http.get('https://localhost:3000/users/login');
+
+                                    if (response.statusCode == 200){
+                                      return Post.fromJson(json.decode(response.body));
+                                    }
+
+                                    else{
+                                      throw Exception ('Falha ao abrir porta');
+                                    }
+                            }*/
+
                            Navigator.pushNamed(context, '/singnup');
                           },
 
@@ -221,6 +241,19 @@ class _LoginPageState extends State<LoginPage> {
           )
         ],
       )
+    );
+  }
+}
+
+class Login {
+  final String usuario, password;
+
+  Login({this.usuario, this.password});
+
+  factory Login.fromJson(Map<String, dynamic> json) {
+    return Login(
+      usuario: json['usuario'] as String,
+      password: json['password'] as String,
     );
   }
 }

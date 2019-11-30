@@ -1,6 +1,8 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'main.dart';
 import 'profile.dart';
 import 'about.dart';
@@ -148,7 +150,35 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                           ),
                         
                         onTap: () {
-                          Navigator.of(context).popUntil((route) => route.isFirst);
+                           //showAlertDialog(context);
+                           return Alert(
+                             //style: Color(Colors.white70),
+                             context: context,
+                             title: "Sinto um disturbio na força!",
+                              desc: "Você esta prestes a deslogar e ficar um passo mais proximo de ser um Lord Sith. \n\n Deseja mesmo continuar ?",
+                              buttons: [
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('Cancelar'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('Continuar'),
+                                  onPressed: () {
+                                    Navigator.of(context).popUntil((route) => route.isFirst);
+                                    SystemChrome.setEnabledSystemUIOverlays([]);
+                                  },
+                                ),
+                              ]
+                             /* actions: [
+                                cancelaButton,
+                                dispararButton,
+                              ], */
+                           ).show();
                         },
                       ),
                       

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:minhappteste/personal.dart';
 import 'package:minhappteste/sigup.dart';
-import 'package:minhappteste/sigup.dart';
 import 'training.dart';
 import 'profile.dart';
 import './about.dart';
