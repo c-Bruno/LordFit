@@ -1,12 +1,9 @@
+//import 'dart:html';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'training.dart';
-import 'profile.dart';
-import './about.dart';
-import 'home.dart';
-import 'main.dart';
-import 'resetpassword.dart';
 
 
 class RegisterPage extends StatefulWidget {
@@ -21,6 +18,52 @@ class RegisterPage extends StatefulWidget {
 
 
 class _RegisterPageState extends State<RegisterPage> {
+
+//File imageFile;
+
+ _openGallery() async{
+   //var picture = await ImagePicker.pickImage(source: ImageSource.gallery);
+   this.setState((){
+    //imageFile = picture;
+   });
+ }
+
+  _openCamera() async{
+    //var picture = await ImagePicker.pickImage(source: ImageSource.gallery);
+   this.setState((){
+    //imageFile = picture;
+   });
+
+ }
+
+ 
+  Future<void> _showChoiceDialog(BuildContext context){
+    return showDialog(context: context,builder: (BuildContext context){
+      return AlertDialog(
+        title: Text("Escolha uma imagem"),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              GestureDetector(
+                child: Text("Galeria"),
+                onTap: () {
+                  _openGallery();
+                },
+              ),
+            
+              Padding(padding: EdgeInsets.all(10.0),),
+               GestureDetector(
+                child: Text("Camera"),
+                onTap: () {
+                  _openCamera();
+                },
+              )
+            ],
+          ),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +100,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   new BorderRadius.circular(25.0)),
 
                                   onPressed: (){
-                                    showAlertDialog(context);
+                                    _showChoiceDialog(context);
                                   },
                                   color: Colors.transparent,
                                   child: Align(child: Text("Editar", 

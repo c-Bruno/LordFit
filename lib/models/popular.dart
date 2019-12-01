@@ -1,3 +1,5 @@
+import 'package:minhappteste/widgets/favorites.dart';
+
 import 'user_model.dart';
 
 // YOU - current user
@@ -82,8 +84,20 @@ final User cap =
 
 
 List<User> favorites = [cap, amber, hugh, momoa, emma, kenobi, chris, margot, bruce, gal];
-
 List<User> indicados = [ gal, emma, margot, cap, kenobi, bruce, momoa, chris, hugh];
+
+final person = [
+    "amber",
+    "rogers",
+    "bruce",
+    "gadot",
+    "hugh",
+    "margot",
+    "momoa",
+    "kenobi",
+    "emma",
+    "aeste",
+  ];
 
 //_________________________________________________________________________
 

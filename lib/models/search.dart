@@ -3,6 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:minhappteste/models/popular.dart';
 import 'package:minhappteste/models/user_model.dart';
 import 'package:minhappteste/widgets/favorites.dart';
+import 'package:minhappteste/widgets/mestre.dart';
+import 'package:minhappteste/personal.dart';
+import 'package:minhappteste/models/popular.dart';
+import 'package:minhappteste/models/user_model.dart';
 
 
 class DataSearch extends SearchDelegate<String>{
@@ -14,25 +18,11 @@ class DataSearch extends SearchDelegate<String>{
       return theme;
     }
 
-
-  final person = [
-    "amber",
-    "rogers",
-    "bruce",
-    "gadot",
-    "hugh",
-    "margot",
-    "momoa",
-    "kenobi",
-    "emma",
-    "teste",
-  ];
-  
   final recentpersons = [
      "Momoa",
     "Kenobi",
     "emma",
-    "Teste",
+    "Bruce",
   ];
 
   
@@ -63,26 +53,21 @@ class DataSearch extends SearchDelegate<String>{
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container(
-      height: 100.0,
-      width: 100.0,
-      child: Card(
-        color: Colors.red,
-        shape: StadiumBorder(),
-        child: Center(
-          child: Text(query),
-        ),
-     ),);
+    SystemChrome.setEnabledSystemUIOverlays([]);           
+      return PersonalPage();     
+
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestionList = query.isEmpty
      ? recentpersons
-    : person.where((p)=> p.startsWith(query)).toList();
+    //: person.where((p)=> p.startsWith(query)).toList();
+    //: person.where((p)=> p.toLowerCase().contains(query)).toList();
+    : favorites.where((p)=> p.name.toLowerCase().contains(query)).toList();
 
     return ListView.builder(
-      itemBuilder: (context, index) => ListTile (
+      itemBuilder: (BuildContext context, int index) => ListTile (
 
         onTap: () {
           showResults(context);
@@ -90,16 +75,16 @@ class DataSearch extends SearchDelegate<String>{
 
         leading: Icon(Icons.navigate_next),
         title: RichText(text:TextSpan(
-          text: suggestionList[index].substring(0, query.length),
+          text: suggestionList[index].toString().substring(0, query.length),
           style: TextStyle(color: Colors.white,
           fontWeight: FontWeight.bold), 
           children: [TextSpan(
-            text:  suggestionList[index].substring(query.length),
+            text:  suggestionList[index].toString().substring(query.length),
             style: TextStyle(color: Colors.grey),
           ),
           ],
         ),
-       ),
+       ),               
       ),
 
       itemCount: suggestionList.length,

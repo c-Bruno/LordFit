@@ -18,7 +18,9 @@ class _ProfilePageState extends State<ProfilePage> {
           leading: IconButton(
          icon: Icon(Icons.arrow_back_ios),
          color: Colors.white,
-         onPressed: () => Navigator.pop(context, '/singnup'),
+         onPressed: () { 
+           SystemChrome.setEnabledSystemUIOverlays([]);
+           Navigator.pop(context, '/singnup');},
        ),
        
       ),

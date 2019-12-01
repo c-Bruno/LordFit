@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:minhappteste/models/user_model.dart';
 import 'package:minhappteste/widgets/mestre.dart';
 import 'package:minhappteste/widgets/mestre_detalhes.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -10,6 +11,8 @@ import 'package:minhappteste/models/popular.dart';
 
  
 class PersonalPage extends StatefulWidget {
+ // PersonalPage(List<User> list);
+
   @override
   _PersonalPageState createState() => new _PersonalPageState();
 }

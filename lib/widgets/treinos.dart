@@ -9,6 +9,11 @@ class Treino extends StatelessWidget{
   @override
   Widget build (BuildContext context){
    return Expanded(
+    child: Column(
+    children: <Widget>[ 
+    Padding(
+    padding: EdgeInsets.only(top: 20.0,),
+
     child: Container(
       margin: EdgeInsets.only(top: 0.0, bottom: 0.0, right: 10.0),
       padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
@@ -152,6 +157,6 @@ class Treino extends StatelessWidget{
         ),
        ),
       ),     
-    );
+    ),],),);
   }
 }

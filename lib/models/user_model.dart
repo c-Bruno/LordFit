@@ -22,5 +22,9 @@ class User {
     this.image2,
     this.image3,
   });
+
+  toLowerCase() {}
+
+  substring(int i, int length) {}
 }
 
