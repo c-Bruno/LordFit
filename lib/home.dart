@@ -2,6 +2,8 @@ import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:minhappteste/models/exercise_model.dart';
+
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'main.dart';
 import 'profile.dart';
@@ -17,7 +19,8 @@ class MenuDashboardPage extends StatefulWidget {
   }
 
 class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTickerProviderStateMixin {
-    
+    PageController _pageController;
+
     bool isCollapsed = true;
     double screenWidth, screenHeight;
     final Duration duration = const Duration(milliseconds: 300);
@@ -29,6 +32,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
     @override
     void initState() {
         super.initState();
+          _pageController = PageController(initialPage: 0,);
         _controller = AnimationController(vsync: this, duration: duration);
         _scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(_controller);
         _menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(_controller);
@@ -50,6 +54,46 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         return Scaffold(
           resizeToAvoidBottomPadding: false,
           backgroundColor: backgroundColor,
+          
+           /*PageView(
+                  controller: _pageController,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                        
+                        image: AssetImage('assets/images/homeFundo.jpg'),
+                        fit: BoxFit.cover
+                      ),
+                     ),),
+
+                     Container(
+                      decoration: BoxDecoration(
+                       gradient: LinearGradient(
+                         colors: [
+                           Colors.black12.withOpacity(.5),
+                           Colors.black12.withOpacity(.5),
+                         ]
+                       )
+                     ),
+                     child: Padding(
+                        padding: EdgeInsets.all(40),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(height: 60,),
+                            Text('Exercicio diario', style: 
+                            TextStyle(
+                              color: Colors.black12,
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                            )),
+                          ],
+                        ),
+                     ),),
+                  ],
+                )*/
+          
           body: Stack(
             
             children: <Widget>[
@@ -57,6 +101,8 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
               dashboard(context),
             ],
           ),
+
+          
         );
       }
 
@@ -236,59 +282,39 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                             });
                           },
                         ),
-                        
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text("Hello" + " teste", style: TextStyle(fontSize: 24, color: Colors.white)),
-
-                        SizedBox(
-                          width: 20,
-                        ),
-
-                       InkWell(
-                        child: Icon(
-                            Icons.settings, 
-                            color: Colors.white,
-                          ),
-
-                          onTap: () {
-                            setState(() {
-                              if (isCollapsed)
-                                _controller.forward();
-                                
-                              else
-                                _controller.reverse();
-
-                              isCollapsed = !isCollapsed;
-                            });
-                          },
-                        )
                       ],
                     ),
-                  
-                  SizedBox(height: 50.0),
+
+                SizedBox(height: 40),
                  ///*
-                  _graficobola(),
+                _graficobola(),
                   const SizedBox(height: 50.0),
+
+                 /*ListView.builder(
+                    itemCount: 1,//categorias.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index){
+                      
+                      //imageUrl = "assets/images/MusicaVader.jpg";
+                      return HomePage();
+                   },
+                  ),*/
                   
 
-                 SizedBox(height: 20),
-                    Text("Progresso", style: TextStyle(color: Colors.white, fontSize: 20),),
+               SizedBox(height: 20),
+                    Text("", style: TextStyle(color: Colors.white, fontSize: 20),),
                     ListView.separated(
                       shrinkWrap: true,
                         itemBuilder: (context, index) {
                       return ListTile(
                        leading: Icon(Icons.fitness_center, color: Colors.white,),
-                        title: Text("Exercicios"),
-                        subtitle: Text("Fitness"),
-                        trailing: Text("+15kg"),
+                        title: Text("Hora do show"),
+                        subtitle: Text("Birrrrrrrrr"),
+                       // trailing: Text("Monstro"),
                       );
                     }, separatorBuilder: (context, index) {
                       return Divider(height: 16);
-                    }, itemCount: 3) //altera a quantidade de itens presentes na composição da lista retornada
-        
-   // */
+                    }, itemCount: 3) //altera a quantidade de itens presentes na composição da lista retornada // */
                   ],
                 ),
               ),
@@ -299,7 +325,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
     }
 
     
-
+    
     Widget _graficobola() {
     return Row(
       children: <Widget>[

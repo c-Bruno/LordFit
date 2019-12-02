@@ -2,7 +2,7 @@ import 'exercise_model.dart';
 
 final Exercise supino = 
     Exercise(
-        id: 1, image: 'assets/images/w1.jpg',  name: 'Supino reto',
+        id: 1, image: 'assets/images/w5.jpg',  name: 'Saltos de panturrilha',
         info: 'Definitivamente é um dos principais para quem deseja fortalecer ou ganhar massa muscular na região do peitoral.' +
         'Para treinar grupos musculares entre eles, peitorais maiores; deltoide; coracobraquial e também tricípete braquial, o mecanismo do supino tem por objetivo ampliar a resistência muscular gradualmente.'
     );
@@ -31,7 +31,8 @@ final Exercise remada =
         info: 'blo blo blo'
     );
 
-List<Exercise> training = [flexao, rosca, levantamento, remada,];
+List<Exercise> training = [flexao, rosca, levantamento, remada, supino];
+
 
 
 class Detail {

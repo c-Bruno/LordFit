@@ -9,6 +9,7 @@ import 'contants.dart';
 import 'package:minhappteste/models/exercise.dart';
 import 'package:minhappteste/widgets/treinos.dart';
 
+bool tovendo = false;
 
 
 class TrainingPage extends StatefulWidget {
@@ -93,6 +94,8 @@ class _TrainingPageState extends State<TrainingPage> {
   void choiceAction(String choice){
     if(choice == Constants.Settings){
       print('Editar treino');
+      tovendo = true;
+      print(tovendo);
     }
     else if(choice == Constants.createn){
       print('Criar novo treino');
@@ -151,7 +154,7 @@ class _TrainingPageState extends State<TrainingPage> {
                     ),
                     
                     
-                    IconButton(
+                    /*IconButton(
                       icon: Icon(
                         Icons.search,
                         color: Colors.white,
@@ -160,7 +163,7 @@ class _TrainingPageState extends State<TrainingPage> {
                       onPressed: () {
                         showAlertDialog(context);
                       },
-                    )
+                    )*/
                   ],
                 ),
               ),
@@ -237,6 +240,7 @@ class _TrainingPageState extends State<TrainingPage> {
               
             SizedBox(height: 6),
             // aciona carousel de imagens 
+           // if (tovendo == false){
              Stack(
                 children: <Widget>[
                   CardScrollWidget(currentPage),
@@ -252,7 +256,9 @@ class _TrainingPageState extends State<TrainingPage> {
                   ),
                 ],
               ),
-              
+           //},
+
+
               
              /* Stack( 
                 children: <Widget>[            
@@ -437,7 +443,7 @@ class CardScrollWidget extends StatelessWidget {
                                     showAlertDialog(context);
                                   },
                                     color: Colors.purple[900],
-                                    child: Text("+ Informações",
+                                    child: Text("+ Fitnes",
                                         style: TextStyle(
                                         color: Colors.white
                                     ),
