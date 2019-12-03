@@ -9,7 +9,7 @@ import 'contants.dart';
 import 'package:minhappteste/models/exercise.dart';
 import 'package:minhappteste/widgets/treinos.dart';
 
-bool tovendo = false;
+bool tovendo = true;
 
 
 class TrainingPage extends StatefulWidget {
@@ -94,11 +94,12 @@ class _TrainingPageState extends State<TrainingPage> {
   void choiceAction(String choice){
     if(choice == Constants.Settings){
       print('Editar treino');
-      tovendo = true;
+      tovendo = false;
       print(tovendo);
     }
     else if(choice == Constants.createn){
       print('Criar novo treino');
+      tovendo = true;
       
     } 
     else if(choice == Constants.delete){
@@ -241,7 +242,8 @@ class _TrainingPageState extends State<TrainingPage> {
             SizedBox(height: 6),
             // aciona carousel de imagens 
            // if (tovendo == false){
-             Stack(
+            tovendo ? new 
+           Stack(
                 children: <Widget>[
                   CardScrollWidget(currentPage),
                   Positioned.fill(
@@ -255,6 +257,8 @@ class _TrainingPageState extends State<TrainingPage> {
                     ),
                   ),
                 ],
+              ): new Container(
+                
               ),
             ],
           ),
