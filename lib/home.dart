@@ -1,4 +1,3 @@
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,8 +18,7 @@ class MenuDashboardPage extends StatefulWidget {
   }
 
 class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTickerProviderStateMixin {
-    PageController _pageController;
-
+  
     bool isCollapsed = true;
     double screenWidth, screenHeight;
     final Duration duration = const Duration(milliseconds: 300);
@@ -32,7 +30,6 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
     @override
     void initState() {
         super.initState();
-          _pageController = PageController(initialPage: 0,);
         _controller = AnimationController(vsync: this, duration: duration);
         _scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(_controller);
         _menuScaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(_controller);
@@ -238,6 +235,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
     }
 
     Widget dashboard(context) {
+      SystemChrome.setEnabledSystemUIOverlays([]);
       return AnimatedPositioned(
         duration: duration,
         top: 0,

@@ -7,6 +7,8 @@ import 'package:minhappteste/requests/post.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+import 'package:rflutter_alert/rflutter_alert.dart';
+
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -21,10 +23,13 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
- final _formKey = GlobalKey<FormState>();
+ //final _formKey = GlobalKey<FormState>();
   final userValue = new TextEditingController();
   final passwordValue = new TextEditingController();
- //String _user, _pass;
+
+  final usuario = 'teste';
+  final senha = '123';
+
  bool _isObscured = true;
 
   @override
@@ -70,14 +75,15 @@ class _LoginPageState extends State<LoginPage> {
                       fontSize: 80.0, fontWeight: FontWeight.bold, color: Colors.purple[900])
                     ),
                   ),
-
+                  
                   Container(
                     padding: EdgeInsets.only(top: 280.0, left: 20.0, right: 20.0),
                     child: Column(
                       
                       children: <Widget>[
+                       //final user =
                         TextField(
-                          
+                          controller: userValue,
                           decoration: InputDecoration(
                             labelText: 'Usuario',
                             labelStyle: TextStyle(
@@ -101,7 +107,8 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(top: 350.0, left: 20.0, right: 20.0),
                     child: Column(
                       children: <Widget>[
-                        TextField(                        
+                        TextField(     
+                          controller: passwordValue,                   
                           decoration: InputDecoration(
                             labelText: 'Senha',
                             suffixIcon: IconButton(
@@ -130,9 +137,9 @@ class _LoginPageState extends State<LoginPage> {
                               fontSize: 15.0,                                     
                            ),                            
           
-                            focusedBorder: UnderlineInputBorder(
+                           focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide (color: Colors.grey)
-                              )
+                              ),
                             ),
                             obscureText: _isObscured,                           
                           ),
@@ -165,27 +172,38 @@ class _LoginPageState extends State<LoginPage> {
                             
                           child: GestureDetector(  
                           onTap:() {
-                            SystemChrome.setEnabledSystemUIOverlays([]);
 
-                           /* Future<http.Response>fetchPost(){
-                              return http.get('https://localhost:3000/users/login');
-                            }*/
+                            if (userValue.text == usuario && passwordValue.text == senha){
+                              SystemChrome.setEnabledSystemUIOverlays([]);
+                                userValue.text ='';
+                                passwordValue.text ='';
 
-                           /* Future<Post> fetchPost() async{
-                              final response =
-                                    await http.get('https://localhost:3000/users/login');
+                                return Navigator.pushNamed(context, '/singnup');                               
+                                }
 
-                                    if (response.statusCode == 200){
-                                      return Post.fromJson(json.decode(response.body));
-                                    }
+                            if (usuario != userValue.text || senha != passwordValue.text || userValue == null || passwordValue == null){
+                              SystemChrome.setEnabledSystemUIOverlays([]);
 
-                                    else{
-                                      throw Exception ('Falha ao abrir porta');
-                                    }
-                            }*/
 
-                           Navigator.pushNamed(context, '/singnup');
-                          },
+                              return Alert(
+                             context: context,
+                             title: "Não te conheço",
+                              desc: "Estes não são os androides que você procura \n\n Se você for mesmo você, tente denovo porque esse usuario ou senha esta incorreto",
+                              buttons: [
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('OK'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ]
+                           ).show();
+                          }
+
+                            userValue.text ='';
+                            passwordValue.text ='';
+                         },
 
                               child: Material(
                               borderRadius: BorderRadius.circular(20.0),
@@ -245,7 +263,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class Login {
+/*class Login {
   final String usuario, password;
 
   Login({this.usuario, this.password});
@@ -256,4 +274,4 @@ class Login {
       password: json['password'] as String,
     );
   }
-}
+}*/

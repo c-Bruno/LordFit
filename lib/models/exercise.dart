@@ -15,13 +15,13 @@ final Exercise flexao =
 
 final Exercise rosca = 
     Exercise(
-        id: 3, image: 'assets/images/w3.jpg',  name: 'Rosca concentrada',
+        id: 3, image: 'assets/images/w3.jpg',  name: 'Levantamento com barra',
         info: 'Rosca concetrada é um exercício físico de treinamento de força. O exercício é realizado com um banco e um halteres'
     );
 
 final Exercise levantamento = 
     Exercise(
-        id: 4, image: 'assets/images/w2.jpg',  name: 'Levantamento com barra',
+        id: 4, image: 'assets/images/w2.jpg',  name: 'Rosca concentrada',
         info: 'bla bla bla'
     );
 
