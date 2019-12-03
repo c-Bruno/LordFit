@@ -256,92 +256,6 @@ class _TrainingPageState extends State<TrainingPage> {
                   ),
                 ],
               ),
-           //},
-
-
-              
-             /* Stack( 
-                children: <Widget>[            
-                Padding(
-                padding: EdgeInsets.only(top: 20.0,),
-                child: Container(   
-                  child: Treino(),
-                  ),),],)
-                    /*Container(
-              child: Row(
-                children: <Widget>[
-                          Expanded(
-                child: Column(
-                children: <Widget>[*/*
-            
-              //]),),],),)*/
-
-
-          
-            /*Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Favourite",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 46.0,
-                          fontFamily: "Calibre-Semibold",
-                          letterSpacing: 1.0,
-                        )),
-                    IconButton(
-                      icon: Icon(
-                        CustomIcons.option,
-                        size: 12.0,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {},
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 22.0, vertical: 6.0),
-                          child: Text("Latest",
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
-                    Text("9+ Stories",
-                        style: TextStyle(color: Colors.blueAccent))
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 18.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Image.asset("assets/images/yoda.jpg",
-                          width: 296.0, height: 222.0),
-                    ),
-                  )
-                ],
-              )*/
             ],
           ),
         ),
@@ -443,7 +357,7 @@ class CardScrollWidget extends StatelessWidget {
                                     showAlertDialog(context);
                                   },
                                     color: Colors.purple[900],
-                                    child: Text("+ Fitnes",
+                                    child: Text("+ Fitness",
                                         style: TextStyle(
                                         color: Colors.white
                                     ),
