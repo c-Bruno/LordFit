@@ -21,48 +21,11 @@ class _ProfilePageState extends State<ProfilePage> {
          onPressed: () { 
            SystemChrome.setEnabledSystemUIOverlays([]);
            Navigator.pop(context, '/singnup');},
-       ),
-       
+       ),       
       ),
-
-
- /*     body: Center(
-        child: RaisedButton (
-          child: Text('Cadastre-se Já'),
-          onPressed: (){
-            Navigator.of(context).pop();
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new _HomePage2()));
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class _HomePage2 extends StatelessWidget {
-  @override
-Widget build(BuildContext context) {
- return Carousel(
-    boxFit: BoxFit.cover,
-    images: [
-      AssetImage ('assets/images/1.gif'),
-      AssetImage ('assets/images/2.gif'),
-      AssetImage ('assets/images/3.gif'),
-      AssetImage ('assets/images/4.gif'),
-      
-    ] ,
-    animationCurve: Curves.linearToEaseOut,
-    animationDuration: Duration(microseconds:100000), 
-    );
-}*/
 
      body: new Stack(
-      children: <Widget>[
-
-        
+      children: <Widget>[        
         Positioned(
             width: 350.0,
             top: MediaQuery.of(context).size.height / 7,
@@ -109,20 +72,20 @@ Widget build(BuildContext context) {
                 Container(
                     height: 30.0,
                     width: 95.0,
+                    child: GestureDetector(
+                      onTap: () {
+                            Navigator.pushNamed(context, '/edit');
+                        },
+
                     child: Material(
                       borderRadius: BorderRadius.circular(20.0),
-                      //shadowColor: Colors.greenAccent,
                       color: Colors.green,
                       elevation: 7.0,
                       child: GestureDetector(
-                        onTap: () {
-                            Navigator.pushNamed(context, '/new');
-                        },
-
+                        
                         child: GestureDetector(
                         onTap: () {
-                            //Navigator.popUntil(context,ModalRoute.withName('/login'));
-                            Navigator.pushNamed(context, '/new');
+                            Navigator.pushNamed(context, '/edit');
                         },
                         child: Center(
                           child: Text(
@@ -134,22 +97,17 @@ Widget build(BuildContext context) {
                         ),
                       ),
                     )),
-                ),
+                ),),
 
                 SizedBox(height: 25.0),
 
                 Container(
                     height: 30.0,
                     width: 95.0,
-                    child: Material(
-                      borderRadius: BorderRadius.circular(20.0),
-                      //shadowColor: Colors.redAccent,
-                      color: Colors.red,
-                      elevation: 7.0,
-                      child: GestureDetector(
-                        onTap: () {
+                    child: GestureDetector(
+                      
+                      onTap: () {
                           return Alert(
-                             //style: Color(Colors.white70),
                              context: context,
                              title: "Sinto um disturbio na força!",
                               desc: "Você esta prestes a deslogar e ficar um passo mais proximo de ser um Lord Sith. \n\n Deseja mesmo continuar ?",
@@ -171,14 +129,15 @@ Widget build(BuildContext context) {
                                   },
                                 ),
                               ]
-                             /* actions: [
-                                cancelaButton,
-                                dispararButton,
-                              ], */
                            ).show();
-                            //Navigator.popUntil(context,ModalRoute.withName('/login'));
-                           // Navigator.of(context).popUntil((route) => route.isFirst);
                         },
+
+                    child: Material(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.red,
+                      elevation: 7.0,
+                      child: GestureDetector(
+                        
                                                
                         child: Center(
                           child: Text(
@@ -189,7 +148,7 @@ Widget build(BuildContext context) {
                           ),
                         ),
                       ),
-                    ))
+                ))),
               ],
             ))
       ],

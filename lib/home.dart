@@ -1,3 +1,4 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -51,55 +52,14 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         return Scaffold(
           resizeToAvoidBottomPadding: false,
           backgroundColor: backgroundColor,
-          
-           /*PageView(
-                  controller: _pageController,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                        
-                        image: AssetImage('assets/images/homeFundo.jpg'),
-                        fit: BoxFit.cover
-                      ),
-                     ),),
 
-                     Container(
-                      decoration: BoxDecoration(
-                       gradient: LinearGradient(
-                         colors: [
-                           Colors.black12.withOpacity(.5),
-                           Colors.black12.withOpacity(.5),
-                         ]
-                       )
-                     ),
-                     child: Padding(
-                        padding: EdgeInsets.all(40),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            SizedBox(height: 60,),
-                            Text('Exercicio diario', style: 
-                            TextStyle(
-                              color: Colors.black12,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                            )),
-                          ],
-                        ),
-                     ),),
-                  ],
-                )*/
-          
           body: Stack(
             
             children: <Widget>[
               menu(context),
               dashboard(context),
             ],
-          ),
-
-          
+          ),          
         );
       }
 
@@ -193,6 +153,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                           ),
                         
                         onTap: () {
+                          
                            //showAlertDialog(context);
                            return Alert(
                              //style: Color(Colors.white70),
@@ -217,10 +178,6 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                                   },
                                 ),
                               ]
-                             /* actions: [
-                                cancelaButton,
-                                dispararButton,
-                              ], */
                            ).show();
                         },
                       ),
@@ -262,9 +219,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                   children: <Widget>[
                     
                     Row(                    
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //mainAxisSize: MainAxisSize.max,
-                                       
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,                                       
                       children: [
                         InkWell(
                           child: Icon(Icons.menu, color: Colors.white, size: 35.0),
@@ -284,35 +239,56 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
                     ),
 
                 SizedBox(height: 40),
+
+            Text("   Quer uma sugestão ? \n\t\t Se liga nesses exercicios", style: TextStyle(
+              color: Colors.white, fontSize: 20),),
+                Container(
+                  child: new Container(
+                    padding: EdgeInsets.all(16),
+                    height: 230.0,
+                    child: Carousel(
+                boxFit: BoxFit.cover,
+                images: [
+                  AssetImage ('assets/images/h1.jpg'),
+                  AssetImage ('assets/images/h2.jpg'),
+                  AssetImage ('assets/images/h3.jpg'),
+                  AssetImage ('assets/images/h4.jpg'),
+                  
+                ] ,
+                animationCurve: Curves.linearToEaseOut,
+                animationDuration: Duration(microseconds:100000), ),)),
+
+
+              SizedBox(height: 40),
+
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+              Text(
+                "\t\t\t O treinamento funcional é puxar, empurrar, estabilizar, levantar, agachar, arremessar, correr ou saltar para fazer do corpo uma ferramenta que produza movimentos mais eficientes, melhorando a performance e prevenindo lesões, em um processo de aprendizado, desafio e evolução constante.\n \t\t\t Quando corretamente aplicado fornece uma variedade de estímulos e benefícios adicionais, que as outras modalidades não conseguem atingir.",
+                  style: new TextStyle(fontSize:17.0,
+                  color: const Color(0xFFFEFEFE),
+                  fontWeight: FontWeight.w200,
+                  fontFamily: "Roboto"),
+           ),]),
+              /*  SizedBox(height: 40),
                  ///*
                 _graficobola(),
                   const SizedBox(height: 50.0),
 
-                 /*ListView.builder(
-                    itemCount: 1,//categorias.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index){
-                      
-                      //imageUrl = "assets/images/MusicaVader.jpg";
-                      return HomePage();
-                   },
-                  ),*/
-                  
-
                SizedBox(height: 20),
-                    Text("", style: TextStyle(color: Colors.white, fontSize: 20),),
+                    Text("Foco tal em:", style: TextStyle(color: Colors.white, fontSize: 20),),
                     ListView.separated(
                       shrinkWrap: true,
                         itemBuilder: (context, index) {
                       return ListTile(
                        leading: Icon(Icons.fitness_center, color: Colors.white,),
-                        title: Text("Hora do show"),
-                        subtitle: Text("Birrrrrrrrr"),
-                       // trailing: Text("Monstro"),
+                        title: Text("Exercicio"),
+                        subtitle: Text("Fitness    15 kg"),
                       );
                     }, separatorBuilder: (context, index) {
                       return Divider(height: 16);
-                    }, itemCount: 3) //altera a quantidade de itens presentes na composição da lista retornada // */
+                    }, itemCount: 3)*/ //altera a quantidade de itens presentes na composição da lista retornada // */
                   ],
                 ),
               ),
@@ -321,9 +297,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> with SingleTicker
         ),
       );
     }
-
-    
-    
+   
     Widget _graficobola() {
     return Row(
       children: <Widget>[

@@ -8,6 +8,7 @@ class ResetPasswordPage extends StatefulWidget {
 }
  
 class _ResetPasswordState extends State<ResetPasswordPage> {
+  final enviaremail = new TextEditingController();
 
    @override
   showAlertDialog(BuildContext context) {
@@ -15,14 +16,16 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
   // configura os botões
   Widget cancelaButton = FlatButton(
     child: Text("Cancelar"),
-    onPressed:  () {},
+    onPressed:  () {
+      Navigator.pop(context);
+    },
   );
   Widget dispararButton = FlatButton(
     child: Text("Continuar"),
-    onPressed:  () {},
+    onPressed:  () {
+       Navigator.pop(context);
+    },
   );
-
-
 
   // configura o  AlertDialog
   AlertDialog alert = AlertDialog(
@@ -33,8 +36,6 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
       dispararButton,
     ],
   );
-
-
 
   // exibe o dialogo
   showDialog(
@@ -82,7 +83,7 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
             SizedBox(height: 30,),
 
             TextFormField(
-              keyboardType: TextInputType.emailAddress,
+              controller: enviaremail,
               decoration: InputDecoration(
                 labelText: "Usuario",
                 labelStyle: TextStyle(
@@ -131,6 +132,7 @@ class _ResetPasswordState extends State<ResetPasswordPage> {
                    onPressed:() {
                       SystemChrome.setEnabledSystemUIOverlays([]);
                       showAlertDialog(context);
+                      enviaremail.text = '';
                      //return Alert(context: context, title:"Uma mensagem foi enviada para sua caixa de e-mail para recuperação da senha").show();
                    } ,
                  ),

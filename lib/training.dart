@@ -65,6 +65,7 @@ showAlertDialog(BuildContext context) {
 
 class _TrainingPageState extends State<TrainingPage> {
   var currentPage = training.length - 1.0;
+  
 
   /*@override
   void _exibirDialogo() {

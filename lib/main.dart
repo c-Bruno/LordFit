@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:minhappteste/edit.dart';
 import 'package:minhappteste/personal.dart';
 import 'package:minhappteste/sigup.dart';
 import 'training.dart';
@@ -48,10 +49,11 @@ runApp(MaterialApp(
       '/personal': (context) => PersonalPage(),
       '/new': (context) => RegisterPage(),
       '/aboutus': (context) => AboutusPage(),
+      '/edit': (context) => EditPage(),
       
       },
 
-      home: LoginPage(),
+     home: LoginPage(),
     ),
   );
 }

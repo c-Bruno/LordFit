@@ -63,8 +63,8 @@ class DataSearch extends SearchDelegate<String>{
     final suggestionList = query.isEmpty
      ? recentpersons
     //: person.where((p)=> p.startsWith(query)).toList();
-    //: person.where((p)=> p.toLowerCase().contains(query)).toList();
-    : favorites.where((p)=> p.name.toLowerCase().contains(query)).toList();
+    : person.where((p)=> p.toLowerCase().contains(query)).toList();
+    //: favorites.where((p)=> p.name.toLowerCase().contains(query)).toList();
 
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) => ListTile (

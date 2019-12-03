@@ -1,24 +1,20 @@
-//import 'dart:html';
-
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-//import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 
-class RegisterPage extends StatefulWidget {
-  RegisterPage({
+class EditPage extends StatefulWidget {
+  EditPage({
     Key key,
   }): super(key: key);
   
   @override
-  _RegisterPageState createState() => new _RegisterPageState();
+  _EditPageState createState() => new _EditPageState();
     
 }
 
 
-class _RegisterPageState extends State<RegisterPage> {
+class _EditPageState extends State<EditPage> {
 
 //File imageFile;
 
@@ -199,13 +195,14 @@ class _RegisterPageState extends State<RegisterPage> {
                              //style: Color(Colors.white70),
                              context: context,
                              title: "Ta feito",
-                              desc: "Seja bem vindo ao LordFit",
+                              desc: "Seu cadastro foi atualizado com sucesso",
                               buttons: [
                                 DialogButton(
                                   color: Colors.purple[900],
                                   child: Text('ok'),
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/singnup');
+                                    Navigator.pop(context);
+                                    Navigator.pop(context);
                                   },
                                 ),
                               ]

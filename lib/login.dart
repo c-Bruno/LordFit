@@ -9,6 +9,8 @@ import 'dart:convert' as convert;
 
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+import 'main.dart';
+
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -172,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                             
                           child: GestureDetector(  
                           onTap:() {
-
+                            
                             if (userValue.text == usuario && passwordValue.text == senha){
                               SystemChrome.setEnabledSystemUIOverlays([]);
                                 userValue.text ='';
@@ -262,16 +264,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-/*class Login {
-  final String usuario, password;
-
-  Login({this.usuario, this.password});
-
-  factory Login.fromJson(Map<String, dynamic> json) {
-    return Login(
-      usuario: json['usuario'] as String,
-      password: json['password'] as String,
-    );
-  }
-}*/
