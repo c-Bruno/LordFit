@@ -3,10 +3,9 @@
   <img src="https://github.com/c-Bruno/LordFit/blob/master/assets/images/LogoFinal.png" alt="TinDev" width="160">
 <br>
 <br>
-LordFit
-</h1>
 
-<p align="center"></p>
+
+<p align="center">LordFit</p>
 <br>
 
 
