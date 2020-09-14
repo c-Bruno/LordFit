@@ -1,6 +1,6 @@
 <h1 align="center">
  <br>
-  <img src="https://github.com/c-Bruno/LordFit/blob/master/assets/images/LogoFinal.png" alt="TinDev" width="120">
+  <img src="https://github.com/c-Bruno/LordFit/blob/master/assets/images/LogoFinal.png" alt="TinDev" width="160">
 <br>
 <br>
 LordFit
