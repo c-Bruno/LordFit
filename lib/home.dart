@@ -2,13 +2,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:minhappteste/models/exercise_model.dart';
-
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'main.dart';
-import 'profile.dart';
-import 'about.dart';
-import 'training.dart';
 
 
 final Color backgroundColor = Color(0xFF0f0f0f);

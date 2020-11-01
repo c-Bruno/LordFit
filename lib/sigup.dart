@@ -19,6 +19,8 @@ class RegisterPage extends StatefulWidget {
 
 
 class _RegisterPageState extends State<RegisterPage> {
+final userValue = new TextEditingController();
+final senha = new TextEditingController();
 
 //File imageFile;
 
@@ -130,6 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   SizedBox(height: 10.0),
                   TextField(
+                     controller: senha,
                     decoration: InputDecoration(
                         labelText: 'Senha',
                         labelStyle: TextStyle(
@@ -179,7 +182,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
                    SizedBox(height: 10.0),
                   TextField(
+                     controller: userValue,
                     decoration: InputDecoration(
+                      
                         labelText: 'Nome de usuario ',
                         labelStyle: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -194,7 +199,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       height: 40.0,
                       child: GestureDetector( 
                         onTap: () {
+                            
+                            if (userValue.text != null ){
                             SystemChrome.setEnabledSystemUIOverlays([]);
+                                    
                             return Alert(
                              //style: Color(Colors.white70),
                              context: context,
@@ -205,11 +213,33 @@ class _RegisterPageState extends State<RegisterPage> {
                                   color: Colors.purple[900],
                                   child: Text('ok'),
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/singnup');
+                                     Navigator.pushNamed(context, '/singnup');
+                                     
+                                  },
+                                ),
+                              ]
+                           ).show(); 
+                           }
+
+                           if (userValue.text == null || senha.text == null ){
+                            return Alert(
+                             //style: Color(Colors.white70),
+                             context: context,
+                             title: "Algo deu errado",
+                              desc: "Existem campos em branco, volte para preenchelos",
+                              buttons: [
+                                DialogButton(
+                                  color: Colors.purple[900],
+                                  child: Text('ok'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
                                   },
                                 ),
                               ]
                            ).show();
+                           }
+
+
                           },
                            
                       child: Material(
@@ -252,7 +282,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child:                         
                         Center(
                           child: Text(
-                              'Go Back',
+                              'Cancelar',
                               style: TextStyle(
                               fontWeight: FontWeight.bold,
                             )

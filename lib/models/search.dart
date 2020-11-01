@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:minhappteste/models/popular.dart';
-import 'package:minhappteste/models/user_model.dart';
-import 'package:minhappteste/widgets/favorites.dart';
-import 'package:minhappteste/widgets/mestre.dart';
 import 'package:minhappteste/personal.dart';
-import 'package:minhappteste/models/popular.dart';
-import 'package:minhappteste/models/user_model.dart';
+import 'package:minhappteste/widgets/favorites.dart';
 
 
 class DataSearch extends SearchDelegate<String>{
@@ -53,9 +49,10 @@ class DataSearch extends SearchDelegate<String>{
 
   @override
   Widget buildResults(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);           
-      return PersonalPage();     
-
+    
+    SystemChrome.setEnabledSystemUIOverlays([]);   
+   // clicado = [];  
+      return PersonalPage(); 
   }
 
   @override
@@ -64,7 +61,7 @@ class DataSearch extends SearchDelegate<String>{
      ? recentpersons
     //: person.where((p)=> p.startsWith(query)).toList();
     : person.where((p)=> p.toLowerCase().contains(query)).toList();
-    //: favorites.where((p)=> p.name.toLowerCase().contains(query)).toList();
+    // favorites.where((p)=> p.name.toLowerCase().contains(query)).toList();
 
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) => ListTile (

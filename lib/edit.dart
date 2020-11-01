@@ -249,7 +249,7 @@ class _EditPageState extends State<EditPage> {
                       child:                         
                         Center(
                           child: Text(
-                              'Go Back',
+                              'Cancelar',
                               style: TextStyle(
                               fontWeight: FontWeight.bold,
                             )

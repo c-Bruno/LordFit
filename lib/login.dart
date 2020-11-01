@@ -32,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   final usuario = 'teste';
   final senha = '123';
 
+
  bool _isObscured = true;
 
   @override
@@ -190,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                               return Alert(
                              context: context,
                              title: "Não te conheço",
-                              desc: "Estes não são os androides que você procura \n\n Se você for mesmo você, tente denovo porque esse usuario ou senha esta incorreto",
+                              desc: "Estes não são os androides que você procura \n\n Se você for mesmo você, tente de novo porque esse usuario ou senha esta incorreto",
                               buttons: [
                                 DialogButton(
                                   color: Colors.purple[900],

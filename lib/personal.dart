@@ -77,6 +77,7 @@ class _PersonalPageState extends State<PersonalPage> {
                                   child: Text('Continuar'),
                                   onPressed: () {
                                     //pensar
+                                     Navigator.pop(context);
                                     SystemChrome.setEnabledSystemUIOverlays([]);
                                   },
                                 ),
